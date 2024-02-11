@@ -1,0 +1,242 @@
+\chapter{Sucesiones aproximativas finitas}\label{sucesionesaprox}
+Desde el punto de vista de la Teoría de la Forma, es interesante encontrar ANR-sistemas que nos permitan obtener los invariantes de forma de un espacio. En el Capítulo \ref{formahistorica} hicimos tres observaciones clave:
+\begin{enumerate}
+  \item Hay un ANR-sistema asociado a todo compacto métrico $ X\subc Q  $ consistente en tomar entornos cada vez más peque\~nos del espacio.
+  \item En cierto modo, podemos usar el hiperespacio $ 2^X  $ como sustituto del cubo de Hilbert para definir la forma.
+  \item $ \{U_\eps \}_{\eps>0 }$ es una base de entornos decreciente de $ X  $ en $ 2^X  $.
+\end{enumerate}
+A trav'es de todas ellas, es razonable pensar que los entornos $ U_\eps $ constituyan un ANR-sistema asociado a $ X  $. En determinados contextos, no es posible contar con toda la informaci'on sobre el espacio $X$, o solo es posible conocer una aproximaci'on finita de puntos en dicho espacio. Pensando ahora desde el Capítulo \ref{espaciosfinitos}, la teoría de McCord relaciona estrechamente los complejos simpliciales y los espacios finitos. De forma inmediata, surge la pregunta de si podremos encontrar un ANR-sistema de poliedros finitos asociado a $ X  $, y qué propiedades mantendrá al volver a pasar a un espacio finito mediante el funtor $ \xcal  $. 
+
+En espacios métricos compactos, podemos considerar aproximaciones finitas de la precisión (distancia entre puntos) que deseemos. As'i, podemos definir sistemas inversos de poliedros finitos mediante el sistema de Vietoris, pero no es claro que al tomar solo una aproximación, y no todo el espacio, dichos sistemas sigan arrojando información sobre el espacio inicial. Sorprendentemente, la respuesta es afirmativa y es fruto del trabajo de tesis de Diego Mondéjar, dirigido por M. A. Morón, y  publicado en los artículos \cite{mondejar2021reconstruction,mondejar2022polyhedral}.
+
+Recordamos la definición que vimos del \textbf{Sistema de Vietoris}  en el contexto métrico. Este vendrá dado por $$\vcal(X) = (\abs{\vcal_\eps(X)},p_{\eps\eps'},\R^+),$$ donde $\vcal_\eps(X) $ es el complejo cuyos v'ertices son los puntos de $X$ y tal que $\sigma = \{x_0,...,x_n\}$ es s'implice si $\diam(\sigma)<\eps $, los morfismos $p_{\eps\eps'}$ son simplemente la identidad sobre los v'ertices y $\eps $ es un n'umero real positivo. Es bien sabido que este complejo puede recuperar propiedades topológicas del espacio inicial, por ejemplo el tipo de homotopía en variedades riemannianas \cite{hausmann1995vietoris,latschev2001vietoris}, y que adem'as codifica la forma del espacio (ver Capítulo \ref{formacategorica}).
+
+\begin{definition}
+  Llamaremos $ \eps $\textbf{-aproximación} de un espacio $ X  $ a un conjunto de puntos $ A_\eps\subc X   $ tal que para todo $ x\in X  $ exista un $ a\in A_\eps  $ con $ \dist(x,a)<\eps  $.
+\end{definition}
+
+El complejo $ \vcal_\delta (A_\eps ) $ es finito, y podemos considerar su espacio de caras $ \xcal (\vcal_\delta (A_\eps )) $. Si consideramos $ U_{\delta} $ en $ 2^{A_\eps} $ (donde $ A_\eps  $ tiene la topología discreta), es claro que este conjunto es precisamente el conjunto de símplices de $ \vcal_\delta(A_\eps ) $, y la topología viene dada por la condición $ C\leq D  \iff C\subc D$. Es decir, $ U_\delta = \xcal (\vcal_\delta (A_\eps ))  $. A partir de aquí denotaremos ambos por $ U_\delta(A_\eps ) $. 
+
+Por el Teorema \ref{apmccord2} del Cap'itulo \ref{espaciosfinitos}, sabemos que hay una equivalencia homotópica débil $ \abs{\vcal_\delta (A_\eps )} \lra U_\delta (A_\eps ) $, así que, si el complejo está relacionado con el espacio inicial, $ U_\delta(A_\eps ) $ también lo estará. Esta es una primera respuesta afirmativa a nuestras preguntas; no obstante, esta relación es más profunda de lo que pueda parecer, puesto que los espacios $ U_\delta  $ nos permitirán recuperar los tipos de homotopía y topolog'ia de $ X  $.
+
+Vamos a probar que si hacemos $ \delta = 2\eps   = 2\eps_n  $, con $ \sucn{\eps_n} $ una cierta sucesión tendiendo a cero y $ A_n  $ cualquier $ \eps_n  $ aproximación, las realizaciones $ \abs{\vcal_{2\eps_n }(A_n ) } $ son una HPol-expansi'on. El primer problema es que, al no ser los espacios $ A_n  $ constantes ni tener por qué estar contenidos unos en otros, hay que definir aplicaciones simpliciales entre los complejos.
+
+\begin{definition}
+  En el contexto de la anterior definición, dada una sucesión decreciente de números reales positivos $ \{\eps_n \}_{n\in \N  } $, diremos que $ \eps_{n+1} $ está \textbf{ajustado } a $ \eps _n  $ si 
+  \begin{gather*}
+      \eps_{n+1} <\frac{\eps_n -\gamma_n}{2}, \quad \gamma_n = \sup\{\dd(x,A_n)\mid x\in X \}.
+  \end{gather*}
+\end{definition}
+\iffalse
+Para definir la aplicación simplicial ahora, sea
+\begin{gather*}
+  \begin{matrix}
+  q_{A_n }: \ &X  &\longrightarrow &2^{A_n}  \\
+  &x  &\mapsto &q_{A_n}(x) = \{a\in A_n \mid \dd(x,a) = \dd (x,A_n )\}.
+  \end{matrix}
+\end{gather*}
+Esta aplicación se puede definir en cualquier $ A_n  $ y es continua. Si tomamos una sucesión ajustada, la imagen de un símplice $ \sigma \in \vcal_{2\eps_{n+1}}(A_{n+1} ) $ será un conjunto de puntos $ q_{A_n}(\sigma) $ de tal forma que para dos $ b \in q_{A_{n+1}}(\{a \} ) $ y $ b'\in q_{A_{n+1}}(\{a'\}) $, $a,a'\in \sigma $,
+\begin{gather*}
+  \dd (b,b' ) \leq \dd (b,a )+\dd(a,a')+\dd(a',b') <\gamma_n +2\eps_{n+1}+\gamma_n < \eps_n +\gamma_n <2\eps_n.
+\end{gather*}
+Así, la imagen de cualquier símplice sigue siendo un símplice, aunque podría ser de mayor cardinalidad, y su restricción $p_{n,n+1} =  \rest{q_{A_n }}{A_{n+1}} $ no define una aplicación simplicial en $ \vcal_{2\eps_n}(A_{n}) $, sino en su espacio de caras. La solución es sencilla: basta escoger un punto de $ A_n  $ en la imagen de cada uno de $ A_{n+1 } $. La aplicación resultante será  $ p_{n,n+1 }\dual :A_{n+1}\lra A_n $, cuya realización completa la sucesión inversa
+\begin{gather*}
+     \vcal(A_n )  = \left(\abs{\vcal_{2\eps_n }(A_n)},\abs{p_{n,n+1 }\dual}\right). 
+\end{gather*}
+\begin{theorem}
+  La sucesión inversa $ \vcal(A_n ) $, es una HPol-expansión de $ X  $.
+\end{theorem}
+\begin{proof}
+  Vamos a ver que esta sucesión es isomorfa a 
+  \begin{gather*}
+      \vcal(X) =  \left(\abs{\vcal_{2\eps_n }(X )},\abs{i_{n,n+1}}\right),
+  \end{gather*} que sabemos que es HPol-expansión. Es evidente que para pasar de una sucesión a otra podemos usar las inclusiones $ j_n :\vcal_{2\eps_n}(A_n)\lra \vcal_{2\eps_n}(X)$. La situación queda reflejada en el esquema
+  \begin{center}
+    \begin{tikzcd}
+      \cdots &\abs{\vcal_{2\eps_{n-1}}(A_{n-1})} \lar{} \dar{\abs{j_{n-1}}} & \abs{\vcal_{2\eps_{n}}(A_{n})} \lar{\abs{p_{n-1,n}\dual}} \dar{\abs{j_{n}}} & \abs{\vcal_{2\eps_{n+1}}(A_{n+1})} \lar{\abs{p_{n,n+1}\dual}} \dar{\abs{j_{n+1}}}& \cdots \lar{} \\ 
+      \cdots & \abs{\vcal_{2\eps_{n-1}}(X)} \lar{} & \abs{\vcal_{2\eps_{n}}(X)} \lar{\abs{i_{n-1,n}}} & \abs{\vcal_{2\eps_{n+1}}(X)} \lar{\abs{i_{n,n+1}}} &\cdots \lar{}
+    \end{tikzcd}
+  \end{center}
+  Este diagrama es conmutativo en homotopía porque las aplicaciones simpliciales $ j_n\circ p_{n,n+1}\dual $ y $ i_{n,n+1}\circ j_{n+1} $ son contiguas\footnote{Ver \ref{contiguashomotopas} }: dado $ \sigma \in \vcal_{2\eps_{n+1}}(A_{n+1}) $, 
+  \begin{gather*}
+    j_n\circ p_{n,n+1}\dual(\sigma)\cup i_{n,n+1}\circ j_{n+1}(\sigma) = p_{n,n+1}\dual(\sigma)\cup \sigma  \in \vcal_{2\eps_n}(X),
+  \end{gather*}
+  porque dados $ a,a'\in \sigma  $ y $ b \in  p_{n,n+1}\dual(\{a' \}) $, tenemos que 
+  \begin{gather*}
+    \dd (a,b) \leq \dd (a,a')+\dd (a',b) <2\eps_{n+1}+\gamma_n <2\eps _n .
+  \end{gather*}
+  Por el Lema de Morita \ref{moritalemma}, para que el morfismo $ (j_n)_{n\geq 1 } $ sea un isomorfismo, basta encontrar morfismos $ \abs{g_n } $ que hagan el diagrama
+  \begin{center}
+    \begin{tikzcd}
+      \abs{\vcal_{2\eps_{n}}(A_{n})}  \dar[swap]{\abs{j_{n}}}   & \abs{\vcal_{2\eps_{n+1}}(A_{n+1})} \lar[swap]{\abs{p_{n,n+1}\dual}} \dar{\abs{j_{n+1}}} \\ 
+      \abs{\vcal_{2\eps_{n}}(X)} & \abs{\vcal_{2\eps_{n+1}}(X)} \lar{\abs{i_{n,n+1}}} \ular{\abs{g_n}}
+    \end{tikzcd}
+  \end{center} 
+  conmutativo en homotopía. Definimos $ g_n (\sigma) $ mediante $q_{A_n}(\sigma) $ de la misma forma que hicimos con $ p_{n,n+1}\dual  $. Entonces es claro que la parte superior del diagrama conmuta, y para la parte de abajo, de nuevo basta comprobar que son contiguas:
+  \begin{gather*}
+    j_n\circ g_n (\sigma)\cup i_{n,n+1}(\sigma) \subc q_{A_n}(\sigma)\cup \sigma \in \vcal_{2\eps_n}(X) 
+  \end{gather*}
+  por el argumento anterior. Así, hemos demostrado que $ (j_n ) $ es isomorfismo y por tanto $ \vcal(A_n ) $ es HPol-expansión.
+\end{proof}
+
+\fi
+
+Para definir una aplicación entre las realizaciones de los complejos, sea
+\begin{gather*}
+  \begin{matrix}
+  q_{A_n }: \ &X  &\longrightarrow &2^{A_n}  \\
+  &x  &\mapsto &q_{A_n}(x) = \{a\in A_n \mid \dd(x,a) = \dd (x,A_n )\}.
+  \end{matrix}
+\end{gather*}
+Esta aplicación se puede definir en cualquier $ A_n  $ y es continua. Si tomamos una sucesión ajustada, la imagen de un símplice $ \sigma \in \vcal_{2\eps_{n+1}}(A_{n+1} ) $ será un conjunto de puntos $ q_{A_n}(\sigma) $ de tal forma que para dos $ b \in q_{A_{n+1}}(\{a \} ) $ y $ b'\in q_{A_{n+1}}(\{a'\}) $, $a,a'\in \sigma $,
+\begin{gather*}
+  \dd (b,b' ) \leq \dd (b,a )+\dd(a,a')+\dd(a',b') <\gamma_n +2\eps_{n+1}+\gamma_n < \eps_n +\gamma_n <2\eps_n.
+\end{gather*}
+Así, la imagen de cualquier símplice sigue siendo un símplice, aunque podría ser de mayor cardinalidad, y su restricción $p_{n,n+1} =  \rest{q_{A_n }}{A_{n+1}} $ no define una aplicación simplicial en $ \vcal_{2\eps_n}(A_{n}) $, sino entre las subdivisiones baricéntricas. Pero, como mostramos en el apéndice \ref{subdivbar}, esto es suficiente para obtener una aplicación continua entre las realizaciones geométricas
+\begin{gather*}
+  \begin{matrix}
+  \abs{p_{n,n+1}}: \ &\abs{\vcal_{2\eps_{n+1}}(A_{n+1})} &\longrightarrow &\abs{\vcal_{2\eps_n }(A_n )} \\
+  &b_{\sigma} &\mapsto &b_{p_{n,n+1}(\sigma)}
+  \end{matrix}
+\end{gather*}
+y una sucesión inversa 
+\begin{gather*}
+  \vcal(A_n )  = \left(\abs{\vcal_{2\eps_n }(A_n)},\abs{p_{n,n+1 }}\right). 
+\end{gather*}
+\begin{theorem}
+La sucesión inversa $ \vcal(A_n ) $ es una HPol-expansi'on de $X$.
+\end{theorem}
+\begin{proof}
+Vamos a ver que esta sucesión es isomorfa a 
+\begin{gather*}
+   \vcal(X) =  \left(\abs{\vcal_{2\eps_n }(X )},\abs{i_{n,n+1}}\right),
+\end{gather*} que sabemos que es una HPol-expansi'on ser isomorfa al complejo de \v Cech (ver \ref{cechvietoris}). Es evidente que para pasar de una sucesión a otra podemos usar las inclusiones $ j_n :\vcal_{2\eps_n}(A_n)\lra \vcal_{2\eps_n}(X)$. La situación queda reflejada en el esquema
+\begin{center}
+ \begin{tikzcd}
+   \cdots &\abs{\vcal_{2\eps_{n-1}}(A_{n-1})} \lar{} \dar{\abs{j_{n-1}}} & \abs{\vcal_{2\eps_{n}}(A_{n})} \lar{\abs{p_{n-1,n}}} \dar{\abs{j_{n}}} & \abs{\vcal_{2\eps_{n+1}}(A_{n+1})} \lar{\abs{p_{n,n+1}}} \dar{\abs{j_{n+1}}}& \cdots \lar{} \\ 
+   \cdots & \abs{\vcal_{2\eps_{n-1}}(X)} \lar{} & \abs{\vcal_{2\eps_{n}}(X)} \lar{\abs{i_{n-1,n}}} & \abs{\vcal_{2\eps_{n+1}}(X)} \lar{\abs{i_{n,n+1}}} &\cdots \lar{}
+ \end{tikzcd}
+\end{center}
+Este diagrama es conmutativo en homotopía porque las aplicaciones son simplicialmente cercanas (ver \ref{simplicialmentecercanas}): las imágenes de  $ \ol{\sigma}$, con $\sigma \in \vcal_{2\eps_{n+1}}(A_{n+1}) $, siempre están en la realización de un mismo símplice de $ \abs{\vcal_{2\eps_n }(X )} $:
+\begin{gather*}
+   \abs{i_{n,n+1}}\circ \abs{j_{n+1}} (\ol{\sigma}) \cup  \abs{j_n }\circ \abs{p_{n,n+1}}(\ol{\sigma }) =  \ol{\sigma}\cup \ol{\{b_{p_{n,n+1}(v)}\}_{v\in \sigma}} \subc \ol{\sigma\cup p_{n,n+1}(\sigma)}.
+\end{gather*}
+Este último es un símplice porque  dados $ a,a'\in \sigma  $ y $ b \in  p_{n,n+1}(\{a' \}) $, tenemos que 
+\begin{gather*}
+ \dd (a,b) \leq \dd (a,a')+\dd (a',b) <2\eps_{n+1}+\gamma_n <2\eps _n .
+\end{gather*}
+Por el Lema de Morita \ref{moritalemma}, para que el morfismo $ (j_n)_{n\geq 1 } $ sea un isomorfismo, basta encontrar morfismos $ \abs{g_n } $ que hagan el diagrama
+\begin{center}
+ \begin{tikzcd}
+   \abs{\vcal_{2\eps_{n}}(A_{n})}  \dar[swap]{\abs{j_{n}}}   & \abs{\vcal_{2\eps_{n+1}}(A_{n+1})} \lar[swap]{\abs{p_{n,n+1}}} \dar{\abs{j_{n+1}}} \\ 
+   \abs{\vcal_{2\eps_{n}}(X)} & \abs{\vcal_{2\eps_{n+1}}(X)} \lar{\abs{i_{n,n+1}}} \ular{\abs{g_n}}
+ \end{tikzcd}
+\end{center} 
+conmutativo en homotopía. Definimos $ g_n (\sigma)= q_{A_n}(\sigma) $ como hicimos con $p_{n,n+1} $. La parte superior del diagrama es igual, y para la parte inferior, de nuevo basta comprobar que son simplicialmente cercanas. Esto se deduce observando que la demostración anterior también prueba que dado $ \sigma \in \vcal_{2\eps_{n+1}}(X ) $, $ q_{A_n}(\sigma)\cup \sigma  $ es un símpice de $ \vcal_{2\eps_n}(X ) $. Así, hemos demostrado que $ (j_n )_n $ es isomorfismo y se concluye la demostración.
+\end{proof}
+
+Aunque hayamos definido las $ p_{n,n+1} $ desde $ A_{n+1 } $, hemos comprobado que son aplicaciones simpliciales entre las subdivisiones baric'entricas de los complejos de Vietoris. Por ende, pueden ser vistas como aplicaciones entre los espacios de caras $\xcal (\vcal_\eps(X))$, y son continuas por preservar el orden. 
+
+\begin{theorem}
+  Sea $ X  $ un espacio métrico compacto y $ (\eps_n)_{n\geq 1} $ una sucesión ajustada. Si denotamos 
+  \begin{gather*}
+    \xfrak = \lim_{\longleftarrow}\left(U_{2\eps_n }(A_n), p_{n,n+1}\right),
+  \end{gather*}
+  entonces $ \xfrak  $ se puede retractar por deformación en un $ \xfrak\dual  \subc \xfrak $ que es homeomorfo a $ X  $.
+\end{theorem}
+\begin{proof}
+  A partir de ahora, denotaremos $ U_n =  U_{2\eps_n}(A_n ) $. La primera parte de la demostración consiste en establecer una función $ \vf:\xfrak \lra X  $. Para ello, tenemos que inspeccionar los elementos de $ \xfrak  $, que sabemos que son tuplas $ (C_n)_{n\geq 1} $ con $ C_n\in  U_n $ de tal forma que $ p_{n,n+1}(C_{n+1}) = C_n  $. Si cambiamos de enfoque, podemos ver los $ U_n  $ como subespacios del hiperespacio $ 2^X  $, y así ver los elementos del límite inverso como sucesiones en $ 2^X  $. Vistas con la distancia Hausdorff, estas sucesiones son de Cauchy: dados $ n<m  $, como por definición
+  \begin{gather*}
+      p_{n,m} (C_m) = p_{n,n+1}\circ\cdots \circ p_{m-1,m}(C_m) = C_n ,
+  \end{gather*}
+  todo $ c_n\in C_n $ cumple $ c_n\in p_{n,m}(\{c_m \}) $ para algún $ c_m\in C_m  $, es decir, hay una cadena de $ c_i \in C_i  $ para $ i = n,...,m$ tal que 
+  \begin{gather*}
+    \dd (c_n,c_m) \leq \sum_{i=n}^{m-1} \dd(c_i,c_{i+1})<\sum_{i=n}^{m-1} \gamma_i <\sum_{i=n}^{m-3}\gamma_i+\gamma_{m-2} +\eps_{m-1} \\ 
+    <\sum_{i=n}^{m-3}\gamma_i +\eps_{m-2}<\cdots<\frac{\gamma_n +\eps _n }{2} = \ol{\eps_n}.
+  \end{gather*}
+  Esto nos indica que $ C_n\subc (C_m)_{\ol{\eps_n}}$ y viceversa, de donde $ \dd_H (C_n,C_m)<\ol{\eps_n } $. Como $ 2^X_H  $ es un espacio métrico compacto, es completo, y la sucesión $ (C_n)$ tiene un límite $ C  $. Además, 
+  \begin{gather*}
+    \diam(C) = \diam (\lim_n C_n) = \lim_n \diam(C_n) \leq \lim_n 2\eps_n  = 0,
+  \end{gather*}
+  por la continuidad de la función diámetro, así que $ C = \{x \} $. Con esto, ya podemos definir una aplicación $ \vf  $, precisamente enviando cada sucesión a su límite. Vamos a ver que esta aplicación es continua, sobreyectiva y que tiene una inversa por la derecha cuya imagen es el $ \xfrak\dual  $ buscado. Sea $ (C_n) \in \xfrak$, $ x = \vf((C_n )_n) $, y $ U \subc X  $ un entorno de $ x  $, podemos suponer $ U= B(x,\eps ) $ para un $\eps>0 $. 
+  \begin{lemma}
+      Sea un entorno $W $ de $(C_n)$ en $\xfrak$. Existe un $n_0\in \N$ tal que el entorno
+      \begin{gather*}
+          V = \left(2^{C_1}\times 2^{C_2}\times \cdots\times 2^{C_{n_0}}\times U_{n_0+1}\times\cdots \right)\cap \xfrak
+      \end{gather*}
+      de $(C_n)$ en $\xfrak $ est'a contenido en $W $.
+  \end{lemma}
+  \begin{proof}[Prueba del lema]
+      Un entorno b'asico $V'\subc V$ de $(C_n)$ es del tipo $\prod_n V'_n\cap \xfrak $, donde $V'_n = U_n$ excepto en una cantidad finita de 'indices. Si tomamos $n_0$ mayor que todos ellos, entonces $V\subc V'$, como quer'iamos demostrar.
+  \end{proof}
+  Si definimos $V$ como en el lema, para cualquier $ (D_n)_n\in V  $, $ y = \vf((D_n )_n) $,
+  \begin{gather*}\label{eqcont1}
+    \dd (x,y) \leq \dd (x,D_{n_0})+\dd(D_{n_0},y)\leq \dd(x,C_{n_0})+\dd (D_{n_0},y) <2\eps_{n_0}.
+  \end{gather*}
+  Considerando $ n_0  $ suficientemente grande, resulta $ \vf(V)\subc U  $, como queríamos demostrar.
+
+  Para probar la sobreyectividad, sea $ x\in X  $. Consideramos $ B_n = B(x,\eps_n)\cap A_n  $ y definimos $ X_n = \bigcap_{m>n }p_{n,m}(B_n) $. Estos conjuntos son intersección de cerrados (por ser finitos) que forman una cadena descendiente, por lo que son no vacíos. Para comprobar esto último, sea $ c \in p_{m,m+1}(B_{m+1}) $: entonces es imagen de un cierto $ b \in B_{m+1 } $ y  
+  \begin{gather*}
+    \dd(x,c)\leq \dd(x,b)+\dd(b,c)<\eps_{m+1}+\gamma_m <\eps_m .
+  \end{gather*}
+  De aquí se colige que $ p_{m,m+1}(B_{m+1})\subc B_m  $, y aplicando $ p_{n,m } $ a ambos lados, 
+  \begin{gather*}
+      p_{n,m+1}(B_{m+1})\subc p_{n,m}(B_m). 
+  \end{gather*} 
+  Una vez demostrado que son no vacíos, como están definidos por una sucesión de conjuntos finitos decreciente, esta tiene que estabilizarse, así que en realidad $ X_{n} = p_{n,m_0}(B_{m_0 }) $ para un cierto $ m_0  $ que depende de $ n  $. Esto implica que 
+  \begin{gather*}
+    p_{n-1,n}(X_{n+1}) = p_{n-1,n}(p_{n,m_0}(B_{m_0})) = p_{n-1,m_0}(B_{m_0}) = X_{n-1}
+  \end{gather*}
+  para $ m_0  $ suficientemente grande, de donde obtenemos que $ (X_n )_n$ es un elemento del límite inverso. Por construcción, es claro que $ x = \vf((X_n )_n) $, y hemos probado la sobreyectividad. Pero no solo eso: hemos obtenido ya la inversa por la derecha, puesto que esta construcción define una función $ \psi:X\lra \xfrak  $ inyectiva. Además, es continua: dados $ x\in X  $ y un entorno básico 
+  \begin{gather*}
+    V = (2^{X_1}\times\cdots\times 2^{X_{n_0}}\times U_{n_0+1}\times\cdots)\cap\xfrak 
+  \end{gather*}
+  de $ \psi(x )  = (X_n )_n$, tenemos que existe un $m\in \N $ tal que $ X_{n_0} = p_{n,m-1}(B^x_{m-1}) $. Quizá aumentando $ m  $, si tomamos $ y\in X  $, $ \psi(y) = (Y_n)_n $, entonces $ Y_{n_0} = p_{n_0,m}(B^y_{m}) $. Es claro que si $ y  $ está suficientemente cerca de $ x  $, entonces $ B^y_m \subc  B^x_m \cup \partial B^x_m   $. Entonces, $ p_{n_0,m}(B^y_m\setminus \partial B_m^x)\subc p_{n_0,m}(B^x_m ) $, y falta demostrar que la parte en la frontera también está contenida. Al proyectar $ z\in \partial B_m^x  $, observamos que 
+  \begin{gather*}
+    \dd (z,\partial B^x_{m-1}) = \eps_{m-1} - \eps_m > \eps_{m-1} - \frac{\eps_{m-1}-\gamma_{m-1}}{2} = \frac{\eps_{m-1}+\gamma_{m-1 }}{2}>\gamma_{m-1 }.
+  \end{gather*}
+  Sin embargo, un punto de $ B_m  $ siempre está a distancia menor o igual que $ \gamma_{m-1}  $ de su proyección. Esto implica que $ p_{m-1,m}(\partial B_m^x)\subc B^x_{m-1}  $, y concluimos 
+  \begin{gather*}
+    Y_{n_0} = p_{n_0,m}(B^y_m)\subc p_{n_0,m}(B^x_m\cup \partial B_m^x) =  p_{n_0,m-1}\left(p_{m-1,m}(B^x_m\cup \partial B_m^x )\right)\subc \\ 
+     p_{n_0,m-1}(B_{m-1}^x) = X_{n_0}.
+  \end{gather*}
+  Por último, para cualquier $ n<n_0  $, $ Y_{n } = p_{n,n_0}(Y_{n_0})\subc p_{n,n_0}(X_{n_0}) = X_n$, como queríamos demostrar.
+
+  Hemos obtenido así dos funciones continuas partes de un homeomorfismo entre $ X  $ y $ \psi(X) = \xfrak\dual  $. Vamos a probar ahora que este $ \xfrak\dual  $ es un retracto por deformación de $ X  $. Es claro que $ \vf\circ \psi  = \id_{\xfrak\dual } $, y hay que probar que $ \psi\circ \vf \approx \id_{X } $. Para ello, definimos explícitamente 
+  \begin{gather*}
+    H((C_n),t) = \begin{dcases}
+      (C_n)_n & \si t\in [0,1)\\ 
+      \psi\circ \vf((C_n)) & \si t=1 
+    \end{dcases}.
+  \end{gather*}
+  Solo es necesario ver la continuidad en los puntos con $ t=1  $. Sean $ ((C_n),1)$ un punto del dominio, $ (X_n)_n = \psi\circ \vf ((C_n)) $ y 
+  \begin{gather*}
+    V = (2^{X_1}\times\cdots\times 2^{X_{n_0}}\times U_{n_0+1}\times\cdots)\cap\xfrak 
+  \end{gather*}
+  un entorno básico de $ (X_n ) $. En \eqref{eqcont1} vimos que podíamos reducir al distancia entre límites de sucesiones tanto como quisiéramos aumentando $ n_0  $, y acabamos de probar que podemos hacer lo propio con sucesiones si disminuimos la distancia entre límites, así que tomando 
+  \begin{gather*}
+    U = (2^{C_1}\times\cdots\times 2^{C_{n_0}}\times U_{n_0+1}\times\cdots)\cap\xfrak
+  \end{gather*}
+  con $ n_0  $ suficientemente grande, $ H(U\times [0,1])\subc V   $, lo cual completa la demostración.
+\end{proof}
+
+La sucesión dada por las subdivisiones baricéntricas es la misma que habíamos considerado anteriormente, y por ello
+\begin{corollary}
+  En el contexto de los teoremas anteriores, la sucesión 
+  \begin{gather*}
+    \left(\abs{\kcal(\xcal(\vcal_{2\eps_n }(A_{n }))}, \abs{p_{n.n+1}})\right)
+  \end{gather*}
+  es una HPol-expansi'on de  $X$.
+\end{corollary}
+\iffalse
+\begin{proof}
+  A partir de ahora denotaremos $ \vcal_{2\eps_n}'(A_n) = \kcal(\xcal(\vcal_{2\eps_n }(A_{n })))$. Sabemos que $ \abs{\vcal'_{2\eps_n}(A_n)} = \abs{\vcal_{2\eps_n}(A_n)} $ como espacios (ver \ref{subdivbar}, o también \cite{jpmayfinitespaces,barmak2011algebraic}). Todo se reduce a comprobar que dos sucesiones con idénticos espacios y distintos morfismos son isomorfas, pero esto es evidente: el diagrama
+  \begin{center}
+    \begin{tikzcd}
+      \cdots & \abs{\vcal_{2\eps_{n-1}}(A_{n-1})} \lar{} \dar{\abs{\id_{n-1}}} & \abs{\vcal_{2\eps_{n}}(A_{n})}  \lar{\abs{p_{n-1,n}}} \dar{\abs{\id_{n}}} &\abs{\vcal_{2\eps_{n+1}}(A_{n+1})}  \lar{\abs{p_{n,n+1}}} \dar{\abs{\id_{n+1}}}& \cdots \lar{} \\
+        \cdots & \abs{\vcal_{2\eps_{n-1}}(A_{n-1})} \lar{} &\abs{\vcal_{2\eps_{n}}(A_{n})} \lar{\abs{p_{n-1,n}\dual}} & \abs{\vcal_{2\eps_{n+1}}(A_{n+1})} \lar{\abs{p_{n,n+1}\dual}} &\cdots \lar{}  
+    \end{tikzcd}    
+  \end{center}
+  conmuta en homotopía, puesto que $ p_{n,n+1}\dual (\sigma )\subc p_{n,n+1}(\sigma )  $ y por la demostración de \ref{contiguashomotopas} (ver también \cite{jpmayfinitespaces}), al coincidir la imagen de dos puntos en el mismo símplice, son homótopas.
+\end{proof}
+\fi

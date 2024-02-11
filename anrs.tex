@@ -1,0 +1,105 @@
+\chapter{Espacios localmente regulares y homotopía}\label{anrs}
+
+La teor'ia de homotop'ia establece un funtor $ \text{H}:\text{Top}\lra \text{HTop } $ de la categor'ia Top de espacios topol'ogicos y aplicaciones continuas en la categor'ia  HTop de espacios topol'ogicos y clases de homotop'ia de aplicaciones continuas. Los mejores frutos de esta teor'ia, sin embargo, se obtienen al restringirnos a Pol, la subcategor'ia de Top de espacios con el tipo de homotop'ia de un poliedro (la realizaci'on geom'etrica de un complejo simplicial\footnote{Introducimos las nociones b'asicas sobre los complejos simpliciales en el Ap'endice \ref{apendice}.}). La teor'ia de la forma trata de extender este funtor $\text{H}:\text{Pol}\lra \text{HPol }  $ a HTop, estableciendo un funtor $ \text{S}: \text{HTop}\lra \text{ShTop} $ que coincide con 'el al restringirse a HPol, es decir, tal que las categor'ias S(HPol) y HPol son isomorfas.
+
+La interpretaci'on de HPol que prima en la teor'ia de la forma, y sobre cuyos resultados descansa su fundaci'on, es la de la teor'ia de retractos. Esta teor'ia fue iniciada por Karul Borsuk \cite{Borsuk1931SurLR,borsuk1932klasse} y sus resultados fundamentales se pueden consultar en \cite{hu1965theory,borsuk1967theory}. La descripci'on que hacemos aqu'i se basa en el libro \textit{Shape theory: the inverse system approach} \cite{mardešić1982shape}, que introduce los conceptos b'asicos de la teor'ia necesarios para el desarrollo de la forma.
+
+Dado un espacio topol'ogico $ X $ y un subconjunto $ Y\subc X  $, una  \textbf{retracci'on} $ r:X\lra Y  $ es una aplicaci'on (funci'on continua) tal que $ \rest{r}{Y} = \id_Y  $. 
+
+
+\begin{definition}
+  Diremos que una clase $ \ccal  $ de espacios Hausdorff es \textbf{d'ebilmente hereditaria} si 
+  \begin{enumerate}
+    \item todo cerrado de un espacio de $ \ccal  $ est'a tambi'en en la clase, y
+    \item todo espacio homeomorfo a uno de $ \ccal  $ est'a tambi'en en la clase.
+  \end{enumerate}
+\end{definition}
+
+Dada una clase $ \ccal  $ d'ebilmente hereditaria, un espacio $ Y  $ es un \textbf{retracto absoluto para la clase $ \ccal  $} (AR$ (\ccal) $) si:
+\begin{enumerate}
+  \item $ Y\in \ccal  $, y
+  \item  si $ Y  $ es homeomorfo a un subconjunto cerrado $ Y'  $ de un $ X\in \ccal  $, entonces $ Y' $ es un retracto de $ X  $.
+\end{enumerate}
+Asimismo, diremos que $ Y  $ es un \textbf{retracto entorno absoluto} (ANR$ (\ccal) $) si $ Y'  $ solo es un retracto de un entorno suyo en $ X  $. Claramente, todo AR($ \ccal  $) es un ANR($ \ccal  $).
+
+An'alogamente, dados un espacio $ X  $ y $ A\subc X  $ un subconjunto cerrado, un espacio $ Y  $ es un \textbf{extensor absoluto} ($ \text{AE}(\ccal ) $) si toda aplicaci'on $ f:A\lra Y  $ admite una extensi'on $ \tilde{f }:X\lra Y  $. Ser'a un \textbf{extensor entorno absoluto } ($ \text{ANE} (\ccal ) $) si $ f  $ solo se extiende a un entorno de $ A  $ en $ X  $. De nuevo, todo AE($ \ccal  $) es un ANE($ \ccal  $).
+
+Todas estas clases de espacios tienen algunas propiedes f'acilmente deducibles, como que el producto finito de ANE's es ANE y que el producto arbitrario de AE's es AE. Adem'as, siempre tenemos que $ Y\in \ccal  $ e $ Y\in \text{AE}(\ccal) $ ($ Y\in \text{ANE}(\ccal) $) implica $ Y\in \text{AR}(\ccal) $ ($ Y\in \text{ANR}(\ccal) $). Sin embargo, no siempre se tienen los rec'iprocos.
+
+\begin{example}\label{tietze}
+  El contenido del Teorema de Extensión de Tietze \cite[p. 49]{dugundji1966topology} es precisamente que el intervalo unidad $ I  $ es un AE para la categoría de espacios normales. Esto implica que también lo es para la subcategoría de compactos métricos. Como el producto arbitrario de AE's es un AE, concluimos que el cubo de Hilbert también lo es.
+\end{example}
+
+A lo largo del trabajo, cuando nos refiramos a un ANR o un AE ser'a siempre para la clase de espacios m'etricos, para la cual las nociones que eran similares anteriormente coinciden:
+\begin{theorem}\label{anrane}
+  Todo \emph{AR (ANR)} para la clase de espacios m'etricos es un \emph{AE (ANE)}.
+\end{theorem}
+
+Ahora, pasamos a estudiar las propiedades homot'opicas de los ANR's. Dados $ X $ e $ Y  $  espacios topol'ogicos  y $ \vcal  $ un recubrimiento de $ Y  $, diremos que dos aplicaciones $ f,g:X\lra Y  $ son \textbf{$ \vcal  $-cercanas} si para todo $ x\in X  $ existe $ U\in \vcal  $ tal que $ f\px  $ y $ g\px  $ pertenecen a $ U  $.
+
+\begin{theorem}\label{vcercanashomotopas}
+  Para todo \emph{$ Y\in\text{ANR } $} existe un recubrimiento abierto $ \vcal $ tal que dos aplicaciones $ f,g:X\lra Y  $ $ \vcal  $-cercanas son hom'otopas.
+\end{theorem}
+
+La demostraci'on de este teorema requiere la consideraci'on de alg'un tipo de distancia en $ Y  $, para lo cual enunciamos los siguientes dos teoremas, que tambi'en intervienen en la demostraci'on de \ref{anrane}:
+\begin{theorem}\label{inmersionkuratowski}
+  Para todo espacio m'etrico $ Y  $ existen un espacio vectorial normado $ L  $ y una inmersi'on $ h:Y\lra L  $ tales que $ h(Y)  $ es un cerrado de su envoltura convexa.
+\end{theorem}
+\begin{theorem}\label{extensiondugundji}
+  Todo subconjunto $ K  $ convexo de un espacio vectorial normado es un AE.
+\end{theorem}
+
+\begin{proof}[Demostraci'on del Teorema \ref{vcercanashomotopas}]
+  Por los Teoremas \ref{inmersionkuratowski} y \ref{extensiondugundji}, podemos suponer que $ Y  $ es un cerrado de un convexo $ K\subc L  $, donde $ L  $ es un espacio vectorial normado. Como $ Y\in \text{ANR} $, existen un entorno abierto $ N  $ de $ Y  $ en $ K  $ y una retracci'on $ r: N\lra Y  $. Podemos considerar un recubrimiento $ \wcal  $ de $ r\inv (Y)  $ de bolas en $ K  $, y definimos $ \vcal  = \{W\cap Y \}_{W\in \wcal } $. Dado un par de aplicaciones continuas $ f,g:X\lra Y  $ $ \vcal  $-cercanas, todo $ x\in X  $ admite un $ V\in \vcal  $ tal que $ f(x),g(x)\in V = W\cap Y  $. La homotop'ia
+  \begin{gather*}
+    \begin{matrix}
+    G : \ &X\times I  &\longrightarrow &Y  \\
+    &(x,t) &\mapsto &tf\px +(1-t)g\px 
+    \end{matrix}
+  \end{gather*}
+  est'a bien definida porque $ G(\{x\}\times I )\subc W \subc N  $ y $ W  $ es convexo, as'i que $ H = rG  $ es la homotop'ia buscada.
+\end{proof}
+Las propiedades de los ANR nos permiten extender tambi'en homotop'ias entre funciones.
+
+\begin{theorem}\label{extensionhomotopia}
+  Sea $ X  $ un espacio m'etrico y $ A\subc X  $ un subconjunto cerrado. Si $ Y\in \text{ANR } $ y $ f,g:X\lra Y  $ son aplicaciones tales que $ \rest{f }{A }\simeq \rest{g }{A } $, entonces dicha homotop'ia se puede extender a un entorno $ V  $ de $ A  $ en $ X  $, $ \rest{f }{V }\simeq \rest{g }{V } $.
+\end{theorem}
+\begin{proof}
+  Consideramos el conjunto cerrado $ C = (A\times I)\cup(X\times\{0 \})\cup (X\times\{1\}) \subc (X\times I )$ y la aplicaci'on $ h:C\lra Y  $ dada por 
+  \begin{gather*}
+    h(x,0) = f\px\quad \& \quad h(x,1) = g\px \quad \&\quad h(a,t) = H(a,t).
+  \end{gather*}
+  Por el Teorema \ref{anrane}, $ Y  $ es un ANE. Esto implica que existe una extensi'on $ \tilde{h}:U\lra Y  $, donde $ U  $ es un entorno de $ C  $ en $ X\times I  $. Usando la compacidad de $ I  $, encontramos un entorno $ V  $ de $ A  $ tal que $ V\times I\subc U  $. Claramente, $ \rest{\tilde{h}}{V\times I   } $ es la homotop'ia buscada.
+\end{proof}
+
+Dados un espacio topol'ogico  $ X  $  y $ A\subc X  $ un subconjunto cerrado, diremos que un espacio  $ Y  $ tiene la \textbf{propiedad de extensi'on de homotop'ia} respecto de $ (X,A ) $ si, para cualquier aplicaci'on $ f:X\lra Y  $ y cualquier homotop'ia $ H:A\times I\lra Y  $ tal que $ H_0 =  \rest{f }{A} $, existe una homotop'ia $ \tilde{H}:X\times I\lra Y  $ que extiende a $ H  $ y tal que $ \tilde{H }_0 = f  $.
+
+\begin{theorem}
+  Sea $ X  $ un espacio m'etrico y $ A\subc X  $ un subconjunto cerrado. Todo $ Y\in \text{ANR } $  tiene la propiedad de extensi'on de homotop'ia respecto de $ (X,A ) $.
+\end{theorem}
+
+Ahora, relacionemos los complejos simpliciales con la nueva clase de espacios que hemos definido:
+\begin{theorem}
+  Todo complejo simplicial con la topolog'ia m'etrica  $ \abs{K}_m $ es un \emph{ANR}.
+\end{theorem}
+La demostraci'on de este resultado escapa a los objetivos de este cap'itulo y preferimos limitarnos a bosquejarla:
+\begin{enumerate}
+  \item Si $ K  $ es un complejo de tal forma que cualquier subconjunto de $ K  $ forma un s'implice, entonces $ \abs{K }_m$ es un AR.
+  \begin{proof}
+    Se trata de conseguir una inmersi'on de $ \abs{K }_m  $ en un convexo de un espacio vectorial normado $ L $, y despu'es usar el Teorema \ref{extensiondugundji}. Para ello, se hace $ L = \{f:K \lra R\mid \sum_{v\in K}\abs{f(v)}<\infi  \} $.
+  \end{proof}
+  \item Todo complejo simplicial $ K  $ es subcomplejo del dado por $ P = (V_K, P(V_K)) $, donde $ P(V_K ) $ denota el conjunto de  todos sus subconjuntos.
+  \item La topolog'ia relativa de todo subcomplejo de $ \abs{P}_m   $ es su topolog'ia m'etrica.
+  \item Sean $ K $ un complejo simplicial y $ L\subc K  $ un subcomplejo. Entonces existe un entorno $ U  $ de  $ \abs{L }_m  $ en $ \abs{K }_m  $ tal que $ U  $ se retracta en $ \abs{L }_m  $.
+\end{enumerate}
+
+En el Ap'endice \ref{apendice}, enunciamos que la identidad es una equivalencia homot'opica entre $ \abs{K }$ y $ \abs{K }_m  $. A la luz del teorema anterior, se hace pantente que todo complejo simplicial tiene el tipo de homotop'ia de un ANR. El rec'iproco tambi'en es cierto, y lo enunciamos en el siguiente teorema:
+
+
+\begin{theorem}\label{complejoanr}
+  Para todo espacio topol'ogico $ X  $, equivalen:
+  \begin{enumerate}
+    \item $ X  $ tiene el tipo de homotop'ia de un poliedro.
+    \item $ X  $ tiene el tipo de homotop'ia de un ANR.
+  \end{enumerate}
+\end{theorem}

@@ -1,0 +1,343 @@
+\chapter{La forma en espacios topológicos}\label{formacategorica}
+En esta sección haremos una introducción a la teoría de la forma desde el punto de vista categórico, basada principalmente en el texto \textit{Shape Theory: The Inverse System Approach} de S. Marde\v si\' c y J. Segal \cite{mardešić1982shape}. La noci'on de ANR-sistema del Cap'itulo \ref{formahistorica} ser'a sustituida por la HPol-expansi'on, y la de homotop'ia por la relaci'on de equivalencia que define pro-$\ccal$. Comenzamos recordando la definici'on de sistema inverso:
+\begin{definition}
+  Sea $ \ccal  $ una categoría. Un \textbf{sistema inverso} $ \mathbf{X } $ en $ \ccal  $ está formado por un conjunto dirigido de índices $ \Lambda  $, un objeto $ X_\lambda  $ para cada $ \lambda \in \Lambda  $ y un \textbf{morfismo de paso} $ p_{\lam \lam' } : X_{\lam'} \lra X_\lam $ para cada par $ \lam\leq \lam'  $. Estos morfismos han de cumplir $ p_{\lam \lam }  = \id_{X_\lam } $ y que si tenemos $ \lam\leq \lam' \leq \lam''  $ entonces $ p_{\lam \lam'}p_{\lam'\lam ''} = p_{\lam \lam' } $. Si $ \Lambda  = \N  $, diremos que $ \mathbf{X } $ es una sucesión inversa.
+\end{definition}
+\begin{definition}
+  Un \textbf{morfismo de sistemas inversos} $ \mathbf{X} = (X_\lam,p_{\lam\lam' },\Lambda)\lra \mathbf{Y} = (Y_\mu ,q_{\mu\mu' },M ) $ viene dado por una función $ \vf:M\lra \Lambda  $ y morfismos $ f_\mu:X_{\vf(\mu)}\lra Y_\mu  $ en $ \ccal  $, de tal forma que para todo $ \mu $, si $ \mu\leq \mu'  $, existe un $ \lam\geq \vf(\mu),\vf(\mu' ) $ tal que el siguiente diagrama conmuta:
+  \begin{center}
+    \begin{tikzcd}
+      X_{\vf(\mu )} \dar{f_\mu} & X_\lam \lar{} \arrow[r] & X_{\vf(\mu')} \dar{f_{\mu' }}\\ 
+      Y_\mu & & Y_{\mu'} \arrow[ll]
+    \end{tikzcd}.
+  \end{center}
+\end{definition}
+Para demostrar que hemos definido una categoría inv-$ \ccal  $, podemos definir la composición de morfismos $ (f_\mu,\vf)\circ (g_\nu,\psi ) $ como el morfismo $ (g_\nu\circ f_{\psi(\nu )},\vf\circ \psi ) $. La composición es asociativa puesto que lo es para las funciones que lo componen, y podemos definir el morfismo identidad considerando $ (\id_{X_\lam}, \id_{\Lambda }) $.
+
+\begin{observation}
+    Una condici'on suficiente para que un subsistema $(X_\mu ,p_{\mu\mu' },M )$ de un sistema $(X_\lam,p_{\lam\lam' },\Lambda)$, con $M\subc \Lambda $, sea isomorfo  a 'el es que $M$ sea cofinal en $\Lambda$.
+\end{observation}
+Ahora, definiremos la relación de equivalencia entre morfismos que imita a la homotopía  dada por Borsuk entre sucesiones fundamentales. Diremos que $ (f_\mu,\vf)\sim (g_\lam ,\psi)  $ si cada $ \mu\in M  $ admite un $ \lam \geq \vf(\mu),\psi(\mu )$ tal que el diagrama 
+\begin{center}
+  \begin{tikzcd}
+    X_{\vf(\mu)}\arrow[swap]{dr}{f_\mu} & X_{\lambda} \arrow[r] \arrow[l] & X_{\psi(\mu)} \arrow{dl}{g_\mu} \\ & Y_\mu &
+  \end{tikzcd}
+\end{center}
+es conmutativo. Esta relación es reflexiva, simétrica y transitiva, y además respeta la composición, es decir, si $ (f_\mu,\vf)\sim (g_\nu,\psi ) $ y $ (f'_\mu ,\vf' )\sim (g'_\nu,\psi) $, entonces $ (g_\nu,\psi)\circ (f_\mu,\vf) \sim (g'_\nu ,\psi')\circ (f'_\mu,\vf') $. Con esta relación, definimos la categoría pro-$ \ccal  $ en la que los objetos son los de inv-$\ccal  $ y los morfismos las clases de equivalencia de morfismos de inv-$ \ccal  $. La observación anterior implica que la composición está bien definida en pro-$ \ccal  $ y la identidad será la clase conteniendo al morfismo $ (\id_{X_\lam },\id_{\Lambda }) $.
+
+En realidad, la abstracción inicial se puede simplificar para acercanos a la intuición:
+\begin{definition}
+  Sean $ \mathbf{X} = (X_{\lambda},p_{\lambda\lambda'}, \Lambda) $ e $ \mathbf{Y } = (Y_\lam , q_{\lam,\lam'},\Lambda ) $ sistemas inversos sobre el mismo conjunto de índices. Un morfismo $ (f_\lam,\vf) $ entre ellos es un \textbf{morfismo de nivel} si $ \vf = \id_{\Lambda } $ y para todos $ \lam\leq \lam' $ el siguiente diagrama conmuta.
+  \begin{center}
+    \begin{tikzcd}
+        X_{\lambda}\arrow{d}{f_\lam}& X_{\lambda'}\arrow{d}{f_{\lam'}}\arrow{l}\\Y_\lam &Y_{\lam'}\arrow{l}
+    \end{tikzcd}.
+  \end{center}
+\end{definition}
+\begin{theorem}[]
+  Sea $ \mathbf{f }:\mathbf{X}\lra \mathbf{Y } $ un morfismo de pro-$ \ccal  $. Entonces existen sistemas inversos $ \mathbf{X}',\mathbf{Y }' $ indizados por el mismo conjunto totalmente ordenado e isomorfismos en pro-$ \ccal  $ $ i:\mathbf{X}\lra \mathbf{X}'  $ y $ j:\mathbf{Y }\lra \mathbf{Y}' $. Además, existe un morfismo $ f':\mathbf{X}\lra \mathbf{Y } $ tal que el diagrama 
+  \begin{center}
+    \begin{tikzcd}
+      \mathbf{X}\arrow{d}{\mathbf{f}}\arrow{r}{\mathbf{i}}&\mathbf{X}'\arrow{d}{\mathbf{f'}}\\ \mathbf{Y }\arrow{r}{\mathbf{j }}&\mathbf{Y'}
+    \end{tikzcd}
+  \end{center}
+  es conmutativo, y $ \mathbf{f' } $ admite un representante que es un morfismo de nivel.
+\end{theorem}
+
+
+Ahora, demostramos un teorema que nos da una condición necesaria y suficiente para que un morfismo de nivel sea un isomorfismo en pro-$ \ccal  $.
+\begin{theorem}[Lema de Morita]\label{moritalemma}
+  Sean $ \mathbf{X} = (X_\lam,p_{\lam,\lam'},\Lambda) $ e $ \mathbf{Y } = (Y_\lam,q_{\lam,\lam'},\Lambda ) $ sistemas inversos sobre el mismo conjunto de índices. Un morfismo de nivel en pro-$ \ccal  $ $ \mathbf{f }:\mathbf{X}\lra \mathbf{Y } $ es un isomorfismo si y solo si para todo $ \lam\in \Lambda  $ existen $ \lam'\geq \lam  $ y $ g_\lam:Y_{\lam'}\lra X_{\lambda}  $ morfismo de $ \ccal  $ tal que el siguiente diagrama conmuta:
+  \begin{center}
+    \begin{tikzcd}
+      X_{\lambda} \arrow{d}{f_\lam} & X_{\lambda'} \arrow{l} \arrow{d}{f_{\lam'}}\\ Y_\lam & Y_{\lam'} \arrow{ul}{g_\lam} \arrow{l}
+    \end{tikzcd}.
+  \end{center} 
+\end{theorem}
+\begin{proof}
+  \begin{itemize}
+    \item[]
+    \item[($ \implies  $)] Sea $ \mathbf{f } $ un isomorfismo de nivel con inversa $ \mathbf{h } = (h_\lam ,\chi ):\mathbf{Y }\lra \mathbf{X} $. Por definición, esto significa que existe un $ \lam'\geq \lam,\chi(\lam ) $ tal que los diagramas
+    \begin{center}
+        \begin{tikzcd}
+          Y_{\chi(\lam )} \arrow[swap]{dr}{f_\lam\circ h_\lam }& Y_{\lam' }\arrow{r}\arrow{l} & Y_\lam \arrow{dl}{\id_\lam} \\ &Y_\lam & 
+        \end{tikzcd} y 
+        \begin{tikzcd}
+          X_{\chi(\lam )} \arrow[swap]{dr}{h_\lam\circ f_{\chi(\lam )}}& X_{\lam' }\arrow{r}\arrow{l} & X_\lam \arrow{dl}{\id_\lam} \\ &X_\lam & 
+        \end{tikzcd}
+    \end{center}
+    conmutan. Esto implica que el morfismo $ g_\lam = h_\lam q_{\chi(\lam)\lam'}:Y_{\lam' }\lra X_{\lambda}  $ cumple lo requerido: 
+    \begin{gather*}
+      g_\lam \circ f_{\lam'} = h_\lam\circ  q_{\chi(\lam)\lam'} \circ f_{\lam'} = h_{\lam} \circ f_{\chi(\lam)} \circ p_{\chi(\lam)\lam'} = p_{\lam\lam'}
+    \end{gather*}
+    y el segundo subdiagrama conmuta directamente, como queríamos demostrar.
+    \item[($ \impliedby  $)] Supongamos que existen tales $ g_\lam $. Veamos que si para cada $ \lam\in \Lambda  $ tomamos cualquier $  \lam' =\psi(\lam)  \geq \lam  $, entonces $ \mathbf{g } = (g_\lam,\psi ):\mathbf{Y}\lra \mathbf{X}  $ es un morfismo de sistemas. Sean ahora $ \lam\in \Lambda  $, $ \lam'\geq \lam  $ y  tomemos $ \lam''\geq \psi(\lam),\psi(\lam') $: observando el diagrama 
+    \begin{center}
+      \begin{tikzcd}
+        X_\lam & X_{\lam'} \arrow{l}\arrow{dd}{f_{\psi(\lam )}}  & & X_{\lam'' }\arrow{dd}{f_{\lam''}} \arrow{ll} & \\ 
+        & & Y_{\psi(\lam')} \arrow{ul}{g_{\lam'}} & &  
+        \\
+        & Y_{\psi(\lam)} \arrow{uul}{g_\lam} & & Y_{\lam''} \arrow{ll} \arrow{ul} & Y_{\psi(\lam'' )} \arrow[swap]{uul}{g_{\lam''}} \arrow{l}
+      \end{tikzcd}
+    \end{center}
+    y atendiendo a las propiedades de $g_\lam$ se tiene
+    \begin{gather*}
+      g_\lam \circ q_{\psi(\lam')\psi(\lam'')} = g_\lam q_{\psi(\lam')\lam''}\circ q_{\lam''\psi(\lam'')} = p_{\lam\lam'}\circ p_{\lam'\lam''} \circ g_{\lam''} =\\ p_{\lam\lam'}\circ g_{\lam'} \circ q_{\psi(\lam')\lam''} \circ q_{\lam''\psi(\lam'')} = p_{\lam\lam'}g_{\lam'}\circ q_{\psi(\lam')\psi(\lam'')}.
+    \end{gather*}
+    Así, $ \mathbf{g }  $ es un morfismo. Además, es la inversa de $ f  $ en pro-$ \ccal  $, puesto que 
+    \begin{gather*}
+      f_\lam g_\lam = q_{\lam\psi(\lam )} \quad \& \quad g_\lam\circ f_{\psi(\lam)} = p_{\lam\psi(\lam )}
+    \end{gather*}
+    se deducen de la hipótesis.
+  \end{itemize}
+\end{proof}
+\begin{observation}
+    Dado un espacio $ X\in \ccal  $, podemos definir un sistema inverso trivial $ \mathbf{X} = (X,\id_X) $. Cualesquiera morfismos $ \mathbf{f},\mathbf{g}:\mathbf{X}\lra \mathbf{Y} $ de pro-$ \ccal  $ desde $X$ que est'en relacionados son de hecho el mismo, as'i que, en este caso, un morfismo de pro-$ \ccal  $ es lo mismo que uno de inv-$ \ccal  $. Por simplicidad, los denotaremos como $ \mathbf{f}:X\lra \mathbf{X} $.
+\end{observation}
+Terminamos la secci'on con una definici'on que ya aparec'ia en el Cap'itulo \ref{formahistorica} a la hora de definir la forma:
+\begin{definition}
+    Sea $ \mathbf{X}$ un sistema en pro-$ \ccal  $. Un l'imite inverso de $ \mathbf{X} $ consiste en un objeto $ X \in\ccal  $ y un morfismo $ \mathbf{p}:X\lra \mathbf{X} $ de pro-$ \ccal  $ con la propiedad universal siguiente: para cualquier otro morfismo $ \mathbf{g}:Y\lra \mathbf{X} $ de pro-$ \ccal  $, existe un 'unico morfismo $ g:X\lra Y  $ que hace conmutativo el diagrama
+    \begin{center}
+        \begin{tikzcd}
+            X \arrow{r}{\mathbf{p}} & \mathbf{X}\\ 
+            & Y \arrow[dotted]{ul}{g} \arrow[swap]{u}{\mathbf{g}}
+        \end{tikzcd}.
+    \end{center}
+\end{definition}
+
+\section{La definici'on de la forma} 
+ En lo que sigue, vamos a trabajar en las categor'ias HTop (espacios topol'ogicos y H-aplicaciones\footnote{Por H-aplicaci'on $X\lra Y $ nos referiremos a una clase de homotop'ia de aplicaciones $X\lra Y$.}) y HPol (espacios con el tipo de homotop'ia de un poliedro y H-aplicaciones). Para definir la forma, asociaremos a cada espacio de HTop un sistema inverso de espacios de HPol, y la forma vendr'a dada como una clase de equivalencia de esos sistemas asociados.
+
+ 
+
+\begin{definition}
+  Dado un objeto $ X\in \text{HTop} $, una \textbf{HPol-expansión} de $ X  $ respecto de HTop es un morfismo de pro-HPol $ \mathbf{p }:X\lra \mathbf{X}  $ con la propiedad universal siguiente: para todo sistema inverso $ \mathbf{Y}\in \text{pro-HPol}$, y cada morfismo $ \mathbf{h }:X\lra \mathbf{Y} $ de pro-HTop, existe un único morfismo $ \mathbf{f }:\mathbf{X}\lra \mathbf{Y}  $ en pro-HPol tal que $ \mathbf{h } = \mathbf{f } \mathbf{p} $, es decir, hace conmutativo el diagrama 
+  \begin{center}
+    \begin{tikzcd}
+      \mathbf{X} \arrow[swap]{dr}{\mathbf{f }} & X \arrow{l}{\mathbf{p }}\arrow{d}{\mathbf{h }}\\ & \mathbf{Y} 
+    \end{tikzcd}.
+  \end{center}
+\end{definition}
+\begin{observation}
+    Dadas dos HPol-expansiones del mismo espacio, $ \mathbf{p}:X\lra \mathbf{X} $ y $ \mathbf{p'}:X\lra \mathbf{X'} $, existe un 'unico morfismo $ \mathbf{i}:\mathbf{X}\lra \mathbf{X}' $ tal que $ \mathbf{i}\mathbf{p} = \mathbf{p}' $. Tambi'en existe un 'unico morfismo $ \mathbf{i'}:\mathbf{X}'\lra \mathbf{X}  $ tal que $ \mathbf{i'}\mathbf{p} = \mathbf{p}' $. Como $ \mathbf{i'}\mathbf{i }\mathbf{p} = \mathbf{p} $, por la unicidad concluimos que $ \mathbf{i' }\mathbf{i } = \id_{\mathbf{X}} $. De igual forma, $ \mathbf{i}\mathbf{i'} = \id_{\mathbf{X}' } $, as'i que es un isomorfismo.
+\end{observation}
+Damos ahora una caracterización de las HPol-expansiones útil en la siguiente demostraci'on.
+
+\begin{proposition}
+  Dado un espacio $ X  $, una HPol-expansión consiste en un sistema inverso $ \mathbf{X}   = (X_\lam, p_{\lam\lam'},\Lambda)$ en HPol y un morfismo $ \mathbf{p}:X\lra \mathbf{X} $ tal que 
+  \begin{gather*}
+    p_{\lam\lam'}p_{\lam'} = p_\lam \quad \forall \lambda\leq \lam'
+  \end{gather*}
+  y, además, satisface 
+  \begin{enumerate}
+    \item[(E1)] \label{e1} Para todos $ P \in \text{ANR} $ y H-aplicación $ h:X\lra P  $ existe un $ \lam\in \Lambda $ y otra H-aplicación $ f:X_\lam\lra P  $ tal que $ fp_\lam = h  $.
+    \item[(E2)] \label{e2} Si tenemos $ P \in \text{ANR} $  y  dos H-aplicaciones $ f,g:X_\lam\lra P  $ tales que $ fp_\lam = gp_\lam  $, entonces existe un $ \lam'\geq \lam  $ tal que $ fp_{\lam\lam'} = gp_{\lam\lam' } $.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{theorem}
+  Todo $ X\in \text{HTop} $ tiene una HPol-expansión. 
+\end{theorem}
+\begin{proof}
+    Para esta demostraci'on vamos a definir una HPol-expansi'on especial conocida como el Sistema de \v Cech. Dado $ X\in \text{HTop}$, consideramos $ \Lambda  $ el conjunto de todos sus recubrimientos normales, es decir, recubrimientos abiertos que tienen una partici'on de la unidad localmente finita subordinada. Con cada recubrimiento $ \ucal \in \Lambda  $, podemos considerar el complejo simplicial $ N(\ucal) $, que llamamos el \textbf{nervio} de $ \ucal $, cuyos v'ertices son los abiertos del recubrimiento y $ \{U_1,...,U_n \} $ forman s'implice si su intersecci'on es no vac'ia. Si consideramos el preorden dado por el refinamiento, dados $ \ucal \leq \vcal  $ podemos definir $ p_{\ucal\vcal }:N(\vcal)\lra N(\ucal ) $ que lleva cada $ V\in \vcal  $ a un $ U\in \ucal  $ tal que $ V\subc U  $. Claramente, estas proyecciones son aplicaciones simpliciales y por tanto definen aplicaciones entre las realizaciones de los nervios. Adem'as, la composici'on de proyecciones es una proyecci'on. Dos proyecciones entre los mismos nervios son siempre contiguas, as'i que sus realizaciones son siempre hom'otopas (ver \ref{contiguashomotopas}).
+
+    As'i pues, $C(X) =  (\abs{N(\ucal )},[p_{\ucal\vcal}],\Lambda ) $ es un sistema inverso en HPol que llamaremos \textbf{sistema de \v Cech}. Queremos demostrar que es una HPol-expansi'on, para lo cual hemos de definir un morfismo $ \mathbf{p}:X\lra C(X)  $. Una aplicaci'on can'onica $ p:X\lra \abs{N(\ucal )} $ es una aplicaci'on tal que, para todo $ U\in \ucal  $, 
+    \begin{gather}\label{aplicacioncanonica}
+      p\inv (\St(U,N(\ucal )))\subc U  .
+    \end{gather}
+    Dada una partici'on de la unidad $ \{\psi_U\}_{U\in \ucal } $ subordinada a $ \ucal  $, podemos definir una aplicaci'on can'onica mediante la f'ormula 
+    \begin{gather*}
+      \begin{matrix}
+      p_\ucal : \ &X  &\longrightarrow &\abs{N(\ucal )} \\
+      &x  &\mapsto &\sum_{U\in \ucal}\psi_U \px U.
+      \end{matrix}
+    \end{gather*}
+    
+    Observamos que dos aplicaciones can'onicas $ p  $ y $ p'  $ en el mismo nervio $ \abs{N(\ucal )} $ son simplicialmente cercanas: dado $ x\in X  $, la propiedad (\ref{aplicacioncanonica}) implica que, si $ \sop(p(x)) = \{U_1,...,U_n \} $ y $ \sop(p'(x)) = \{U'_1,...,U'_n \} $, entonces $ x\in U_1\cap...\cap U_n \cap U'_1\cap...\cap U'_n  $, as'i que todos ellos forman un s'implice que contiene a $ p(x) $ y $ p'(x) $. De la Proposici'on \ref{simplicialmentecercanas} se infiere que todas ellas son hom'otopas. Asimismo, si $ \ucal \leq \vcal  $, entonces $ p_{\ucal\vcal }p_\ucal  $ es una aplicaci'on can'onica: 
+    \begin{gather*}
+      (p_{\ucal\vcal}p_\ucal)\inv (\St(U,N(\ucal))) \subc p_\ucal\inv (\bigcup_{V\subc U } \St (V,N(\vcal ))) \subc \bigcup_{V\subc U }V \subc U .
+    \end{gather*}
+    Aunando ambos hechos, obtenemos que $ [p_{\ucal\vcal }][p_{\vcal }] = [p_{\ucal } ]$, as'i que el morfismo $ \mathbf{p} = (p_{\ucal}):X\lra C(X ) $ es un morfismo de sistemas inversos. Para demostrar que es HPol-expansi'on, hemos de verificar que se cumplen \hyperref[e1]{(E1)} y \hyperref[e2]{(E2)}. 
+
+    Sean $ P $ y $ h  $ como en \hyperref[e1]{(E1)}. Tomamos $ \vcal  $ un recubrimiento abierto de $ P $ tal que dos aplicaciones $ f,g:X \lra P  $ $ \vcal  $-cercanas sean hom'otopas (ver \ref{vcercanashomotopas}). Entonces, el Lema 2 en \cite[p. 316]{mardešić1982shape} asegura que 
+    \begin{itemize}
+      \item[] existen un recubrimiento normal $ \ucal  $ y una aplicaci'on $ f_\ucal :\abs{N(\ucal )}\lra P  $ tales que para todo $ U\in \ucal  $ existe un $ V\in \vcal  $ con 
+      \begin{gather*}
+        f_\ucal (\St(U,N(\ucal)))\subc V \quad \&  \quad h(U)\subc V.
+      \end{gather*}
+    \end{itemize}
+    Es evidente que, bajo estas condiciones, $ f_\ucal p_\ucal$  y $ h  $ son $ \vcal  $-cercanas y, por tanto, hom'otopas, como quer'iamos demostrar.
+
+    An'alogamente, sean $ P  $ y $ f,g:X_\ucal \lra P  $ como en \hyperref[e2]{(E2)}. Denotaremos $ i:\abs{N(\ucal )}\lra \abs{N(\ucal )}_m  $ a la equivalencia homot'opica del Lema \ref{idhomotopia} y $ j  $ a su inversa homot'opica. Sabemos que este complejo m'etrico es un ANR \ref{complejoanr}, as'i que el Lema 1 en \cite[p. 46]{mardešić1982shape} nos asegura que 
+    \begin{itemize}
+      \item[] existen un $ M\in \text{ANR} $ y aplicaciones $ \vf:X\lra M  $ y $ \psi:M\lra \abs{N(\ucal)}_m  $ tales que el siguiente diagrama conmuta en homotop'ia:
+      \begin{center}
+        \begin{tikzcd}
+          & X \arrow{d}{p_{\ucal}} \arrow{rr}{\vf} & &  M \arrow{d}{\psi} \\ 
+          & \abs{N(\ucal )} \arrow{dl}{f} \arrow{dr}{g} \arrow{rr}{i} & & \abs{N(\ucal )}_m \arrow{ll}{j}  \\ 
+          P & & P &
+        \end{tikzcd}.
+      \end{center}
+    \end{itemize}  
+    Si consideramos el recubrimiento $ \ucal' = \{U'\}_{U\in \ucal } $ dado por $ U' = \psi\inv(\St (U, N(\ucal ))) $, podemos aplicar el Lema 2 que enunciamos antes (\cite[p. 316]{mardešić1982shape}) para obtener un recubrimiento normal $ \vcal  $ y una aplicaci'on $ h : \abs{N(\vcal )}\lra M  $ tales que, para todo $ V\in \vcal  $, existe un $ U\in \ucal  $ con
+    \begin{gather*}
+      h(\St(V,N(\vcal ))) \subc \psi\inv(\St(U,N(\ucal ))) \quad \& \quad \vf(V )\subc \psi\inv (\St(U,N(\ucal  ))).
+    \end{gather*}
+    Esto implica que 
+    \begin{gather*}
+      V\subc \vf\inv\psi\inv(\St(U,N(\ucal )))  =  p_{\ucal}\inv(\St(U,N(\ucal))) \subc U,
+    \end{gather*}
+    de donde $\vcal $ es un refinamiento de $ \ucal  $ y $ p_{\ucal\vcal} (V) = U $ es una proyecci'on. Esta aplicaci'on simplicial es contigua a $ \psi h  $: dado $ y\in \abs{N(\vcal )} $ con $ \sop(y) = \{V_1,...,V_n \} $, entonces denotamos $ p_{\ucal\vcal}(V_i) = U_i  $. Por la definici'on de $ h  $, 
+    \begin{gather*}
+      \psi h(y)\in \bigcap_{i=1}^n \St(U_i,N(\ucal)), 
+    \end{gather*}
+    as'i que $ p_{\ucal\vcal}(y)\in \sop(\psi h(y)) $, de donde son contiguas. As'i, tenemos una homotop'ia $ p_{\ucal\vcal}\simeq j \psi h  $ y conlcuimos que 
+    \begin{gather*}
+      fp_{\ucal\vcal} \simeq f  j\psi h \simeq g j\psi h \simeq g p_{\ucal\vcal },
+    \end{gather*}
+    como queriamos demostrar.
+\end{proof}
+
+
+Para describir la categoría de forma, tenemos todavía que exhibir sus morfismos. En esencia, son simplemente los morfismos de pro-HPol entre expansiones. Como un espacio puede tener varias, tenemos que relacionarlos para evitar ambig\"uedades. Dados espacios de HTop y HPol-expansiones representados en el siguiente diagrama,
+\begin{center}
+  \begin{tikzcd}
+    & \mathbf{X} \arrow{r}{\mathbf{f}}\arrow{dd}{\mathbf{i}} & \mathbf{Y} \arrow{dd}{\mathbf{j}} & \\ 
+    X\arrow{ur}{\mathbf{p}} \arrow{dr}{\mathbf{p}'} & & & Y \arrow{ul}{\mathbf{q}} \arrow{dl}{\mathbf{q}'} \\ & \mathbf{X}' \arrow{r}{\mathbf{f}'}& \mathbf{Y}' &  
+  \end{tikzcd},
+\end{center}
+decimos que dos morfismos $ \mathbf{f}  $ y $ \mathbf{f}'  $ de pro-HPol en esta situación están relacionados si el diagrama conmuta. Esta relación es de equivalencia y se puede definir la composición de clases componiendo representantes. Estas clases serán los morfismos de la \textbf{categoría Forma}, que denotaremos por ShTop, y sus objetos los de HTop. Dado un morfismo $ f:X\lra Y  $, podemos asociarle un único morfismo de ShTop expandiendo ambos espacios y completando el diagrama 
+\begin{center}
+  \begin{tikzcd}
+    \mathbf{X} \arrow[dotted]{d}{\mathbf{f}}& X \arrow{l}{\mathbf{p}} \arrow{d}{f} \\ \mathbf{Y} & Y\arrow{l}{\mathbf{q}}
+  \end{tikzcd}.
+\end{center}
+La clase $ \Sh  $ de este morfismo no depende de las expansiones, así que podemos definir el funtor forma 
+\begin{gather*}
+  \Shf: \text{HTop}\lra \text{ShTop} .
+\end{gather*}
+Este funtor no es inyectivo ni sobreyectivo, aunque induce una biyección entre morfismos cuando el espacio de llegada es un $ Y \in \text{HPol} $. Diremos que dos espacios tienen la misma forma y denotaremos $ \sh(X) = \sh(Y) $ cuando sean isomorfos en $ \Sh  $. Por ser $ \Shf  $ un funtor, dos espacios homotópicamente equivalentes tienen la misma forma; recíprocamente, si dos espacios son ANR's, podemos asociarles sistemas triviales y que tengan la misma forma equivale a que tengan el mismo tipo de homotopía. Así pues, cuando hay buen comportamiento local, la forma se reduce a la homotopía.  
+\begin{proposition}
+    Un morfismo $ F:X\overset{\Sh }{\lra } Y $ inducido por un $ \mathbf{f}:\mathbf{X}\lra \mathbf{Y} $ es un isomorfismo si y solo si lo es $ \mathbf{f} $.
+\end{proposition}
+
+Este teorema nos indica que dos espacios tienen la misma forma si y solo si tienen sendas HPol-expansiones isomorfas en pro-HPol. Esta fue la definici'on de la forma que dimos en el Cap'itulo \ref{formahistorica}, Secci'on \ref{seccionanr}, sustituyendo las expansiones por l'imites inversos. De hecho, son equivalentes tener el tipo de homotop'ia de un poliedro y el de un ANR \ref{complejoanr}, por lo que nuestros ANR-sistemas son tambi'en sistemas en inv-HPol, y tambi'en determinan la forma:
+
+\begin{theorem}
+  Sea $ \mathbf{X}  $ un sistema inverso de \emph{ANR's} compactos y $ \mathbf{p}:X\lra \mathbf{X}  $ un límite inverso. Entonces $ H \mathbf{p}:X\lra H\mathbf{X}$ es \emph{HPol}-expansión, donde $H$ es el funtor de homotop'ia.
+\end{theorem}
+
+ 
+Para concluir la sección, vamos a introducir un nuevo sistema inverso que llamaremos \textbf{Sistema de Vietoris}. Dado un espacio topológico $ X  $, tomamos $ \Lambda  $ el conjunto de todos sus recubrimientos normales ordenados por el refinamiento. Los poliedros $ \abs{K_\ucal }  $ serán la realización de los complejos cuyos vértices son los puntos de $ X  $, y $ \{x_0,...,x_n \} $ forman un símplice si existe un $ U\in \ucal  $ tal que $ \{x_0,...,x_n \}  \subc U $. Los morfismos de paso $ p_{\ucal\vcal} :K_{\vcal}\lra K_\ucal  $ vendrán dados por las aplicaciones simpliciales que llevan cada vértice en sí mismo. Podemos establecer un morfismo de pro-HPol entre este sistema y el Sistema de \v Cech: para cada $ \{U_1,...,U_n\}\in \abs{N(\ucal )} $, tenemos que existe un $ x\in U_1\cap...\cap U_n  $. La aplicaci'on  
+\begin{gather}\label{cechvietoris}
+  \begin{matrix}
+  q_\ucal : \ &N(\ucal)'&\longrightarrow &K_\ucal \\
+  &\{U_1,...,U_n \} &\mapsto &x\in U_1\cap...\cap U_n ,
+  \end{matrix}
+\end{gather} 
+es simplicial entre la subdivisi'on baric'entrica del nervio de $ \ucal  $ y su complejo de Vietoris asociado. Dado que las realizaciones de un complejo y de su subdivisi'on baric'entrica coinciden (ver \ref{subdivbar}), esta induce una aplicaci'on continua $ q_\ucal:\abs{N(\ucal )}\lra \abs{K_\ucal } $. Es m'as, cualesquiera dos aplicaciones definidas de esta forma son contiguas, y por tanto hom'otopas. Fue probado por Dowker en \textit{Homology groups of relations} \cite{dowker1952homology} que este es un isomorfismo de pro-HPol, y por tanto el Sistema de Vietoris es tambi'en una HPol-expansi'on.
+
+
+Aunque esta definición es bastante abstracta a priori, si nos reducimos a la categoría de espacios métricos compactos, los recubrimientos abiertos siempre son normales. Además, el subconjunto $ M\subc \Lambda  $ de todos los recubrimientos del tipo $ \{B(x,\eps)\mid x\in X, \ \eps>0 \} $ es cofinal y está ordenado por el refinamiento. Esto nos da un subsistema inverso isomorfo a  $ \vcal(X ) $ en el que cada término, que designaremos ahora $ \vcal_\eps(X)$,  será la realización del complejo cuyos vértices son los puntos de $ X  $ y en el que $ \sigma = \{x_0,...,x_n \} $ es un símplice si $ \diam(\sigma)<\eps  $. Evidentemente, si escogemos una sucesi'on decreciente de n'umeros reales positivos $(\eps_n)_n $, el subsistema de $\vcal_\eps(X) $ dado solo por los recubrimientos $\{B(x,\eps_n)\mid x\in X\}_n$ es tambi'en isomorfo a $\vcal(X)$. Este es el sistema del que nos servimos en el Cap'itulo \ref{sucesionesaprox}, y es tambi'en HPol-expansi'on por ser isomorfo a $\vcal(X)$. Es m'as, este es un ANR-sistema en el sentido del Cap'itulo \ref{formahistorica}, puesto que el conjunto de 'indices es cofinito. Sin embargo, su l'imite inverso no es en general homeomorfo a $X$.
+
+
+
+
+\section{Invariantes de forma}
+
+Una ventaja clave del acercamiento por sistemas inversos a la forma es la facilidad para definir invariantes algebraicos. En esta sección, vamos a definir  invariantes que podemos asociar a un espacio topológico tal y como lo hacíamos en teoría de homotopía. 
+
+En muchos de los resultados que son hitos de la teor'ia de la forma necesitaremos condiciones sobre la dimensi'on del espacio. Diremos que un complejo simplicial tiene dimensi'on $ \dim K\leq n  $ si todos sus s'implices tienen cardinal menor o igual que $ n  $. Extenderemos esta definici'on a su realizaci'on, conviniendo que  $ P = \abs{K } $ tiene $ \dim P = n  $ si este es el m'aximo de los cardinales de sus s'implices. Un sistema inverso $ \mathbf{X}$ en pro-HPol tendr'a dimensi'on $ \dim \mathbf{X}\leq n$ si, para todo $ \lam\in \Lambda  $, la $ \dim X_\lam \leq n  $.
+\begin{definition}
+  Diremos que un espacio topol'ogico $ X  $ tiene \textbf{morfodimensi'on} $ \sd(X)= n  $ si $ n  $ es la m'inima dimensi'on de las HPol-expansiones que admite. Diremos que $ \sd(X) = \infi  $ si este m'inimo no existe.
+\end{definition}
+
+
+En sintonía con la idea de la teoría de la forma, en vez de asociar un único grupo invariante por forma, primero construiremos un sistema inverso de grupos, que llamaremos pro-grupo. Si $ \mathbf{X}= (X_\lam,p_{\lambda\lambda'},\Lambda )$ es un sistema en pro-HTop, para cada grupo abeliano $ G  $ podemos definir $ H_k(\mathbf{X}, G )  = (H_k(X_\lam;G),H_k(p_{\lambda\lambda'};G),\Lambda )$, que es un sistema en pro-Ab. De hecho, para cada morfismo $ \mathbf{f}:\mathbf{X}\lra \mathbf{Y}  $ podemos definir $ H_k(\mathbf{f};G):H_k(\mathbf{X};G)\lra H_k(\mathbf{Y};G ) $ y este funtor respeta la relación de pro-HTop, es decir, todo morfismo de pro-HTop induce uno en pro-Ab. Tenemos así un funtor de homología entre sistemas 
+\begin{gather*}
+  H_k(-;G):\text{pro-HTop}\lra \text{pro-Ab}.
+\end{gather*}
+
+Recuperando la idea de la sección anterior, para definir invariantes en un $ X\in \text{HTop}$, consideramos una HPol-expansión $ \mathbf{p}:X\lra \mathbf{X}  $ y definimos el $ k $-\textbf{ésimo pro-grupo de homotopía con coeficientes en}  $G $ como la clase de equivalencia de pro-grupos que contiene a $ H_k(\mathbf{X};G ) $. Esta definición es consistente, puesto que para cualquier otra HPol-expansión $ \mathbf{p}':X\lra \mathbf{X}'  $ hay un isomorfismo $ \mathbf{i }:\mathbf{X}\lra \mathbf{X}'  $ que induce un isomorfismo sobre los pro-grupos. Lo denotaremos por pro-$ H_k(X;G ) $, y si $ G= \Z  $ lo omitiremos en la notación. Lo relevante es que estos pro-grupos son un invariante de forma:
+\begin{gather*}
+\text{pro-}H_k(-;G ) :\text{ShTop} \lra \text{pro-Ab}
+\end{gather*}
+es un funtor para todo $ k\geq 0  $ y $ G\in\text{Ab} $. 
+
+Podemos dar un paso más: dado que sabemos que la categoría pro-Ab tiene límites inversos, definimos los $ k  $\textbf{-ésimos grupos de homología de \v Cech}:
+\begin{gather*}
+  \check{H}_k(X;G) = \lim_{\longleftarrow}\text{pro-}H_k(X;G ).
+\end{gather*} 
+Estos coinciden con los grupos de homología de \v Cech clásicos y son invariantes de forma.
+\begin{theorem}[continuidad]
+  Sea $ \mathbf{p}:X\lra \mathbf{X}  $ una \emph{HTop}-expansión y $ \check{\mathbf{p}} $ el homomorfismo inducido entre los grupos de homología de \v Cech. Entonces el homomorfismo límite inducido por este, $ \check{p}:\check{H}_k(X;G)\lra \displaystyle\lim_{\longleftarrow}\check{H}_k(\mathbf{X}; G ) $ es un isomorfismo de grupos.
+\end{theorem}
+
+En el caso de la cohomología de \v Cech, el desarrollo es idéntico, pero ahora el $ k  $-\textbf{ésimo grupo de cohomología de \v Cech}  viene dado por un límite directo
+\begin{gather*}
+  \check{H}^k(X;G) =\lim_{\lra}H^k(\mathbf{X};G ) =  \lim_{\lra} (H^k(X_\lam;G),H^k(p_{\lambda\lambda'}),\Lambda),
+\end{gather*}
+puesto que la cohomología es un funtor contravariante. En resumen, es un invariante de forma y también coincide con la cohomología clásica. Dualizando el teoremea anterior, tenemos el siguiente
+\begin{theorem}[continuidad]
+  Sea $ \mathbf{p}:X\lra \mathbf{X}  $ una \emph{HTop}-expansión. Entonces el homomorfismo $ \check{p}:\displaystyle\lim_{\lra} \check{H}^k(\mathbf{X};G ) \lra \check{H}^k(X;G ) $ inducido por $ \mathbf{p} $ es un isomorfismo de grupos.
+\end{theorem}
+
+Por último, construimos los grupos de homotopía y de forma. En homotopía tenemos que considerar espacios puntuados $ (X,*) $ de $ \text{HPol}_*  $, y definimos el $ k  $\textbf{-ésimo pro-grupo de homotopía} como 
+\begin{gather*}
+  \text{pro-}\pi_k (X,*) = \pi_k(\mathbf{X},*) = ((\pi_k(X_\lam,*)),\pi_k(p_{\lambda\lambda'}),\Lambda),
+\end{gather*}
+dada una $ \text{HPol}_* $-expansión $ \mathbf{X} $ cualquiera de $ X  $. Estos grupos son independientes de la expansión y están bien definidos en pro-Grp. Además, todo morfismo de $ \Sh_*  $ $ F:(X,*)\lra (Y,* ) $ viene dado por uno de pro-$ \text{HPol}_* $, y por ende induce uno entre los pro-grupos, de tal forma que 
+\begin{gather*}
+  \text{pro-}\pi_k(-):ShTop_*\lra \begin{dcases}
+    \text{pro-Set}_* & \si k=0\\ 
+    \text{pro-Grp} &\si k=1\\ 
+    \text{pro-Ab} & \si k\geq 2
+  \end{dcases}
+\end{gather*}
+es un funtor. Podemos definir así el $ k $\textbf{-ésimo grupo de forma} 
+\begin{gather*}
+  \check{\pi}_k(X,*) = \lim_{\longleftarrow}\text{pro-}\pi_k(X,*),
+\end{gather*}
+que es un funtor $ \check{\pi}_k:\text{Set}_*\lra \ccal $ donde $ \ccal  $ varía según $ k  $ como acabamos de describir. Tenemos también un teorema de continuidad en este caso:
+\begin{theorem}[continuidad]
+  Sea $ \mathbf{p}:(X,*)\lra (\mathbf{X},\mathbf{*}) $ una $ \text{HTop}_* $-expansión. Entonces, los homomorfismos 
+  \begin{gather*}
+    \check{\pi}_k(p_\lam):\check{\pi}_k(X,*)\lra \check{\pi}_k(X_\lam,*)
+  \end{gather*} definen un morfismo
+  \begin{gather*}
+    \check{\pi}_k(\mathbf{p}) :\check{\pi}_k(X,*)\lra\check{\pi}_k(\mathbf{X},\mathbf{*})
+  \end{gather*}
+ que induce un isomorfismo $ \check{\pi}_k(X,*)\lra \displaystyle\lim_{\longleftarrow}\check{\pi}(\mathbf{X},*) $ entre los límites.
+\end{theorem}
+
+\section{Algunos teoremas importantes}
+Como dijimos en la introducción, la teoría de la forma permite llegar a teoremas similares a los de la teoría de homotopía eliminando las condiciones sobre el comportamiento local de los espacios.
+
+Para enunciar el Teorema de Hurewicz, necesitamos definir el análogo al homomorfismo de Hurewicz entre pro-grupos. Los homomorfismos de Hurewicz 
+\begin{gather*}
+  \vf_\lam: \pi_k(X_\lam,*)\lra H_k(X_\lam )
+\end{gather*}
+definen un morfismo de nivel entre los pro-grupos 
+\begin{gather*}
+  \mathbf{\vf }:\pi_k(\mathbf{X},\mathbf{*})\lra H_k(\mathbf{X}   ), 
+\end{gather*}
+y este es también un morfismo entre $ \text{pro-}\pi_k(X,*)\lra\text{pro-}H_k(X)  $ \cite[p. 135]{mardešić1982shape}. Ya podemos enunciar el teorema:
+
+\begin{theorem}[Hurewicz]
+  Sea $ (X,*) $ un espcio topológico punteado tal que $ \text{pro-}\pi_k(X,*) = 0 $ para $ k=0,...,n-1  $. Si $ n\geq 2 $, se tienen:
+  \begin{enumerate}
+    \item $ \text{pro-}H_k(X) = 0 $ para $ k=1,...,n-1 $;
+    \item el morfismo de Hurewicz $  \text{pro-}\pi_n(X,*)\lra\text{pro-}H_n(X) $ es un isomorfismo de pro-grupos;
+    \item $ \text{pro-}\pi_{n+1}(X,*)\lra\text{pro-}H_{n+1}(X)  $ es un epimorfismo de pro-grupos.
+  \end{enumerate}
+  Además, si $ n=1 $, $ \text{pro-}\pi_1(X,*)\lra\text{pro-}H_1(X)  $ es un epimorfismo.
+\end{theorem}
+
+El Teorema de Whitehead afirma que una equivalencia homotópica débil entre CW-complejos es una equivalencia homotópica. En el contexto $ \Sh_*  $, hablaremos de \textbf{$ n  $-equivalencias}, que serán morfismos $ \mathbf{f}:(\mathbf{X},*)\lra (\mathbf{Y},*) $ en $ \text{pro-HTop}_* $  que inducen isomorfismos $ \pi_k(\mathbf{f}):\pi_k(\mathbf{X},\mathbf{*})\lra \pi_k(\mathbf{Y},\mathbf{*})$ para $ k\leq n-1 $ y un epimorfismo cuando $ k=n$. Un morfismo $ F:(X,*)\lra(Y,*) $ de $ \Sh_* $ será $ n$-equivalencia cuando su morfismo asociado en $ \text{pro-HPol}_* $ lo sea.
+
+\begin{theorem}[Whitehead]
+  Si $ F:(X,*)\lra(Y,*) $ en $ \Sh_*  $ es una $ n  $-equivalencia entre espacios conexos, y $ \sd(X)\leq n-1  $, $ \sd(Y)\leq n  $, entonces $ F  $ es un isomorfismo de $ \Sh_* $.
+\end{theorem}
+
+Es interesante observar que, aunque el Teorema de Whitehead clásico funciona para $ n = \infi $, el análogo en forma necesita la finitud de la dimensión.
