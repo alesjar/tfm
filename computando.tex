@@ -2,7 +2,7 @@
 En este capítulo vamos a dise\~nar un programa que nos permita calcular explícitamente sucesiones aproximativas finitas para ciertos espacios. 
 
 Sea $ \mathbb{S}^1  $ la circunferencia unidad. Podemos conseguir una sucesión aproximativa finita tomando $ \eps_n = (2\pi )/n$ y considerando las $ \eps_n  $-aproximaciones $ A_n = \{e^{im \eps_n }\mid m =0,...,n-1\} $. Para definirlas en nuestro programa, simplemente a\~nadimos cada punto a una lista que conforme la aproximación: 
-\iffalse
+
 \begin{minted}{python}
     def crearnubecircunferencia(epsilon):
         nube = [];
@@ -13,7 +13,7 @@ Sea $ \mathbb{S}^1  $ la circunferencia unidad. Podemos conseguir una sucesión 
             theta += epsilon;
         return nube
 \end{minted}
-\fi 
+
 En vez de calcular primero el espacio finito $ U_{2\eps_n}(A_n) $ y luego representarlo, vamos a dise\~nar un programa que cree el espacio como grafo directamente, y luego lo represente como diagrama de Hasse. 
 
 En vez de trabajar constantemente con los puntos de la aproximación, vamos a trabajar con el conjunto $ \{1,...,n\} $ de números naturales en biyección con la aproximación, y almacenar las distancias entre puntos en una matriz:
@@ -157,46 +157,46 @@ Podemos ver un ejemplo ejecutando este código para $ n = 7,..., 15$:
 \begin{figure}[h]
     \begin{subfigure}{.5\textwidth}
       \centering
-      \includegraphics[width=.8\linewidth]{7.png}
+      \includegraphics[width=.8\linewidth]{imagenes/7.png}
       \caption{$n = 7$}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
       \centering
-      \includegraphics[width=.8\linewidth]{8.png}
+      \includegraphics[width=.8\linewidth]{imagenes/8.png}
       \caption{$ n = 8 $}
     \end{subfigure}
     \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{9.png}
+        \includegraphics[width=.8\linewidth]{imagenes/9.png}
         \caption{$ n = 9 $}
       \end{subfigure}%
       \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{10.png}
+        \includegraphics[width=.8\linewidth]{imagenes/10.png}
         \caption{$ n = 10 $}
       \end{subfigure}
 \end{figure}
 \begin{figure}[h]
      \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{11.png}
+        \includegraphics[width=.8\linewidth]{imagenes/11.png}
         \caption{$ n = 11 $}
       \end{subfigure}%
       \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{12.png}
+        \includegraphics[width=.8\linewidth]{imagenes/12.png}
         \caption{$ n = 12 $}
       \end{subfigure}
 \end{figure}
 \begin{figure}[h]
       \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{13.png}
+        \includegraphics[width=.8\linewidth]{imagenes/13.png}
         \caption{$ n = 13 $}
       \end{subfigure}%
       \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{14.png}
+        \includegraphics[width=.8\linewidth]{imagenes/14.png}
         \caption{$ n = 14 $}
       \end{subfigure}
     \caption{Distintas fases de la sucesión aproximativa de la circunferencia.}
@@ -207,22 +207,22 @@ Si avanzamos más en la sucesión, podemos ver cómo se van a\~nadiendo puntos, 
 \begin{figure}[h]
     \begin{subfigure}{.5\textwidth}
       \centering
-      \includegraphics[width=.8\linewidth]{40.png}
+      \includegraphics[width=.8\linewidth]{imagenes/40.png}
       \caption{$n = 40$}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
       \centering
-      \includegraphics[width=.8\linewidth]{41.png}
+      \includegraphics[width=.8\linewidth]{imagenes/41.png}
       \caption{$ n = 41 $}
     \end{subfigure}
     \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{42.png}
+        \includegraphics[width=.8\linewidth]{imagenes/42.png}
         \caption{$ n = 42 $}
       \end{subfigure}%
       \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{44.png}
+        \includegraphics[width=.8\linewidth]{imagenes/44.png}
         \caption{$ n = 44 $}
       \end{subfigure}
 \end{figure}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.2)  5 FEB 2024 09:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.2)  11 FEB 2024 21:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/alexb/Documents/estudios/universidad/latex/tfm/pegadostfm.tex
-(c:/Users/alexb/Documents/estudios/universidad/latex/tfm/pegadostfm.tex
+**c:/Users/alexb/Documents/estudios/universidad/tfm/pegadostfm.tex
+(c:/Users/alexb/Documents/estudios/universidad/tfm/pegadostfm.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (c:/texlive/2023/texmf-dist/tex/latex/amscls/amsbook.cls
@@ -1184,10 +1184,10 @@ Package biblatex Info: ... file 'pegadostfm.bbl' found.
  (./pegadostfm.bbl)
 Package biblatex Info: Reference section=0 on input line 380.
 Package biblatex Info: Reference segment=0 on input line 380.
-<logoucm.png, id=75, 600.3228pt x 678.3744pt>
-File: logoucm.png Graphic file (type png)
-<use logoucm.png>
-Package pdftex.def Info: logoucm.png  used on input line 407.
+<imagenes/logoucm.png, id=75, 600.3228pt x 678.3744pt>
+File: imagenes/logoucm.png Graphic file (type png)
+<use imagenes/logoucm.png>
+Package pdftex.def Info: imagenes/logoucm.png  used on input line 407.
 (pdftex.def)             Requested size: 170.97pt x 193.1938pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1195,7 +1195,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [0
 
 
-{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./logoucm.png>]
+{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./imagenes/logoucm.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.0}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1234,20 +1234,20 @@ Cap\'{\i }tulo 1
 
 ]
 Cap\'{\i }tulo 2
-<Warsaw-circle.png, id=212, 361.35pt x 223.83624pt>
-File: Warsaw-circle.png Graphic file (type png)
-<use Warsaw-circle.png>
-Package pdftex.def Info: Warsaw-circle.png  used on input line 13.
+<imagenes/Warsaw-circle.png, id=212, 361.35pt x 223.83624pt>
+File: imagenes/Warsaw-circle.png Graphic file (type png)
+<use imagenes/Warsaw-circle.png>
+Package pdftex.def Info: imagenes/Warsaw-circle.png  used on input line 12.
 (pdftex.def)             Requested size: 289.0804pt x 179.06923pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11 <./Warsaw-circle.png>] [12] [13] [14] [15] [16]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 185.
+ [11 <./imagenes/Warsaw-circle.png>] [12] [13] [14] [15] [16]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 184.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [17]
-Overfull \hbox (4.7715pt too wide) in paragraph at lines 208--209
+Overfull \hbox (4.7715pt too wide) in paragraph at lines 207--208
 []\T1/lmr/m/n/12 Sabemos que hay apli-ca-cio-nes $\OML/lmm/m/it/12 f \OT1/lmr/m/n/12 : \OML/lmm/m/it/12 X [][]\OMS/lmsy/m/n/12 !
  []
 
@@ -1290,14 +1290,17 @@ Cap\'{\i }tulo 5
 Cap\'{\i }tulo 6
 \openout4 = `pegadostfm.pyg'.
 
-(./_minted-pegadostfm/default.pygstyle) (./_minted-pegadostfm/69CC8EBE27B485DDA4D99C3D74520F03DCEFBD8DE470F0BA6B48FE797656CAC3.pygtex
+(./_minted-pegadostfm/default.pygstyle) (./_minted-pegadostfm/88AEEC037BAD959B93118CCF05DF37B6DCEFBD8DE470F0BA6B48FE797656CAC3.pygtex
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1.
  (c:/texlive/2023/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2.
-) [47]
+)
+\openout4 = `pegadostfm.pyg'.
+
+ (./_minted-pegadostfm/69CC8EBE27B485DDA4D99C3D74520F03DCEFBD8DE470F0BA6B48FE797656CAC3.pygtex) [47]
 \openout4 = `pegadostfm.pyg'.
 
  (./_minted-pegadostfm/32FEF219BEA0DA236B79D3375EDA8903DCEFBD8DE470F0BA6B48FE797656CAC3.pygtex [48])
@@ -1307,84 +1310,91 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 Underfull \vbox (badness 1789) has occurred while \output is active []
 
  [49])
-<7.png, id=605, 462.528pt x 346.896pt>
-File: 7.png Graphic file (type png)
-<use 7.png>
-Package pdftex.def Info: 7.png  used on input line 160.
+<imagenes/7.png, id=605, 462.528pt x 346.896pt>
+File: imagenes/7.png Graphic file (type png)
+<use imagenes/7.png>
+Package pdftex.def Info: imagenes/7.png  used on input line 160.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 161.
-<8.png, id=606, 462.528pt x 346.896pt>
-File: 8.png Graphic file (type png)
-<use 8.png>
-Package pdftex.def Info: 8.png  used on input line 165.
+<imagenes/8.png, id=606, 462.528pt x 346.896pt>
+File: imagenes/8.png Graphic file (type png)
+<use imagenes/8.png>
+Package pdftex.def Info: imagenes/8.png  used on input line 165.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<9.png, id=607, 462.528pt x 346.896pt>
-File: 9.png Graphic file (type png)
-<use 9.png>
-Package pdftex.def Info: 9.png  used on input line 170.
+<imagenes/9.png, id=607, 462.528pt x 346.896pt>
+File: imagenes/9.png Graphic file (type png)
+<use imagenes/9.png>
+Package pdftex.def Info: imagenes/9.png  used on input line 170.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<10.png, id=608, 462.528pt x 346.896pt>
-File: 10.png Graphic file (type png)
-<use 10.png>
-Package pdftex.def Info: 10.png  used on input line 175.
+<imagenes/10.png, id=608, 462.528pt x 346.896pt>
+File: imagenes/10.png Graphic file (type png)
+<use imagenes/10.png>
+Package pdftex.def Info: imagenes/10.png  used on input line 175.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<11.png, id=609, 462.528pt x 346.896pt>
-File: 11.png Graphic file (type png)
-<use 11.png>
-Package pdftex.def Info: 11.png  used on input line 182.
+<imagenes/11.png, id=609, 462.528pt x 346.896pt>
+File: imagenes/11.png Graphic file (type png)
+<use imagenes/11.png>
+Package pdftex.def Info: imagenes/11.png  used on input line 182.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<12.png, id=610, 462.528pt x 346.896pt>
-File: 12.png Graphic file (type png)
-<use 12.png>
-Package pdftex.def Info: 12.png  used on input line 187.
+<imagenes/12.png, id=610, 462.528pt x 346.896pt>
+File: imagenes/12.png Graphic file (type png)
+<use imagenes/12.png>
+Package pdftex.def Info: imagenes/12.png  used on input line 187.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<13.png, id=611, 462.528pt x 346.896pt>
-File: 13.png Graphic file (type png)
-<use 13.png>
-Package pdftex.def Info: 13.png  used on input line 194.
+<imagenes/13.png, id=611, 462.528pt x 346.896pt>
+File: imagenes/13.png Graphic file (type png)
+<use imagenes/13.png>
+Package pdftex.def Info: imagenes/13.png  used on input line 194.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<14.png, id=612, 462.528pt x 346.896pt>
-File: 14.png Graphic file (type png)
-<use 14.png>
-Package pdftex.def Info: 14.png  used on input line 199.
+<imagenes/14.png, id=612, 462.528pt x 346.896pt>
+File: imagenes/14.png Graphic file (type png)
+<use imagenes/14.png>
+Package pdftex.def Info: imagenes/14.png  used on input line 199.
 (pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50 <./7.png> <./8.png> <./9.png> <./10.png> <./11.png> <./12.png>]
-<40.png, id=625, 462.528pt x 346.896pt>
-File: 40.png Graphic file (type png)
-<use 40.png>
-Package pdftex.def Info: 40.png  used on input line 210.
-(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<41.png, id=626, 462.528pt x 346.896pt>
-File: 41.png Graphic file (type png)
-<use 41.png>
-Package pdftex.def Info: 41.png  used on input line 215.
-(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<42.png, id=627, 462.528pt x 346.896pt>
-File: 42.png Graphic file (type png)
-<use 42.png>
-Package pdftex.def Info: 42.png  used on input line 220.
-(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-<44.png, id=628, 462.528pt x 346.896pt>
-File: 44.png Graphic file (type png)
-<use 44.png>
-Package pdftex.def Info: 44.png  used on input line 225.
-(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
-) (./complejossimpliciales.tex [51 <./13.png> <./14.png> <./40.png> <./41.png> <./42.png> <./44.png>] [52
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-]
+[50 <./imagenes/7.png> <./imagenes/8.png> <./imagenes/9.png> <./imagenes/10.png>]
+<imagenes/40.png, id=622, 462.528pt x 346.896pt>
+File: imagenes/40.png Graphic file (type png)
+<use imagenes/40.png>
+Package pdftex.def Info: imagenes/40.png  used on input line 210.
+(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
+<imagenes/41.png, id=623, 462.528pt x 346.896pt>
+File: imagenes/41.png Graphic file (type png)
+<use imagenes/41.png>
+Package pdftex.def Info: imagenes/41.png  used on input line 215.
+(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
+<imagenes/42.png, id=624, 462.528pt x 346.896pt>
+File: imagenes/42.png Graphic file (type png)
+<use imagenes/42.png>
+Package pdftex.def Info: imagenes/42.png  used on input line 220.
+(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
+<imagenes/44.png, id=625, 462.528pt x 346.896pt>
+File: imagenes/44.png Graphic file (type png)
+<use imagenes/44.png>
+Package pdftex.def Info: imagenes/44.png  used on input line 225.
+(pdftex.def)             Requested size: 170.97325pt x 128.22775pt.
+)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+(./complejossimpliciales.tex [51 <./imagenes/11.png> <./imagenes/12.png> <./imagenes/13.png> <./imagenes/14.png>] [52 <./imagenes/40.png> <./imagenes/41.png> <./imagenes/42.png> <./imagenes/44.png>]
 Ap\'{e}ndice A
 
 Overfull \hbox (2.4709pt too wide) in paragraph at lines 34--35
 [][][]\T1/lmr/m/sc/12 Definición \T1/lmr/m/n/12 A.5\T1/lmr/m/sc/12 . []\T1/lmr/m/n/12 Da-do un $\OML/lmm/m/it/12 x \OMS/lmsy/m/n/12 2 []$\T1/lmr/m/n/12 , que po-de-mos re-pre-sen-tar co-mo $\OML/lmm/m/it/12 x \OT1/lmr/m/n/12 = [][] \OML/lmm/m/it/12 []v$
  []
 
-[53] [54]
+[53
+
+
+] [54]
 Overfull \hbox (2.22891pt too wide) in paragraph at lines 95--96
 [][][]\T1/lmr/m/sc/12 Definición \T1/lmr/m/n/12 A.7\T1/lmr/m/sc/12 . []\T1/lmr/m/n/12 Di-re-mos que dos apli-ca-cio-nes con-ti-nuas $\OML/lmm/m/it/12 g; f \OT1/lmr/m/n/12 : \OML/lmm/m/it/12 X [][]\OMS/lmsy/m/n/12 ! [] \OT1/lmr/m/n/12 ([][])$
  []
@@ -1422,15 +1432,15 @@ Package logreq Info: Writing requests to 'pegadostfm.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51215 strings out of 474221
- 1144363 string characters out of 5750189
- 2084957 words of memory out of 5000000
- 72249 multiletter control sequences out of 15000+600000
+ 51222 strings out of 474221
+ 1145889 string characters out of 5750189
+ 2085030 words of memory out of 5000000
+ 72253 multiletter control sequences out of 15000+600000
  673704 words of font info for 116 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 94i,18n,97p,1852b,1958s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,18n,97p,1846b,1958s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on pegadostfm.pdf (60 pages, 2133620 bytes).
+Output written on pegadostfm.pdf (60 pages, 2134057 bytes).
 PDF statistics:
  892 PDF objects out of 1000 (max. 8388607)
  734 compressed objects within 8 object streams

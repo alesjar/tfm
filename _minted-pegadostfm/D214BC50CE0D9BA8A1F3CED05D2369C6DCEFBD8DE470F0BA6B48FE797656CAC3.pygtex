@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{def} \PYG{n+nf}{hacerminimal}\PYG{p}{(}\PYG{n}{G}\PYG{p}{):}
+    \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{numnodos} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{G}\PYG{o}{.}\PYG{n}{nodes}\PYG{p}{));}
+    \PYG{k}{while} \PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{numnodos} \PYG{o+ow}{and} \PYG{n}{numnodos}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{n}{nodo} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{G}\PYG{o}{.}\PYG{n}{nodes}\PYG{p}{)[}\PYG{n}{i}\PYG{p}{];}
+        \PYG{c+c1}{\PYGZsh{} Obtenemos su lista de sucesores}
+        \PYG{n}{sucesores} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{G}\PYG{o}{.}\PYG{n}{successors}\PYG{p}{(}\PYG{n}{nodo}\PYG{p}{));}
+        \PYG{c+c1}{\PYGZsh{} Obtenemos su lista de predecesores}
+        \PYG{n}{predecesores} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{G}\PYG{o}{.}\PYG{n}{predecessors}\PYG{p}{(}\PYG{n}{nodo}\PYG{p}{));}
+
+        \PYG{c+c1}{\PYGZsh{} Analizamos el caso en el que es un punto colapsable hacia arriba}
+        \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{sucesores}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{n}{sucesor} \PYG{o}{=} \PYG{n}{sucesores}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+            \PYG{n}{lista1} \PYG{o}{=} \PYG{p}{[];}
+            \PYG{n}{G}\PYG{o}{.}\PYG{n}{remove\PYGZus{}node}\PYG{p}{(}\PYG{n}{nodo}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} lo eliminamos}
+            \PYG{k}{for} \PYG{n}{n} \PYG{o+ow}{in} \PYG{n}{predecesores}\PYG{p}{:}
+                \PYG{c+c1}{\PYGZsh{} añadimos nuevos lados}
+                \PYG{n}{lista1}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{n}\PYG{p}{,}\PYG{n}{sucesor}\PYG{p}{));}
+            \PYG{n}{G}\PYG{o}{.}\PYG{n}{add\PYGZus{}edges\PYGZus{}from}\PYG{p}{(}\PYG{n}{lista1}\PYG{p}{);}
+            \PYG{k}{return} \PYG{n}{hacerminimal}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} volvemos a inciar el proceso}
+
+        \PYG{c+c1}{\PYGZsh{} Analizamos el caso en el que es un punto colapsable hacia abajo}
+        \PYG{k}{elif} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{predecesores}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{n}{predecesor} \PYG{o}{=} \PYG{n}{predecesores}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+            \PYG{n}{lista1} \PYG{o}{=} \PYG{p}{[];}
+            \PYG{n}{G}\PYG{o}{.}\PYG{n}{remove\PYGZus{}node}\PYG{p}{(}\PYG{n}{nodo}\PYG{p}{);} \PYG{c+c1}{\PYGZsh{} lo eliminamos}
+            \PYG{k}{for} \PYG{n}{n} \PYG{o+ow}{in} \PYG{n}{sucesores}\PYG{p}{:}
+                \PYG{n}{lista1}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{predecesor}\PYG{p}{,}\PYG{n}{n}\PYG{p}{));} \PYG{c+c1}{\PYGZsh{} añadimos nuevos lados}
+            \PYG{n}{G}\PYG{o}{.}\PYG{n}{add\PYGZus{}edges\PYGZus{}from}\PYG{p}{(}\PYG{n}{lista1}\PYG{p}{);}
+            \PYG{k}{return} \PYG{n}{hacerminimal}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} volvemos a inciar el proceso}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{n}{i} \PYG{o}{=} \PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{G}
+\end{Verbatim}
