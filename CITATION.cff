@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Moreno Becerra  
+    given-names: Alejandro
+    orcid: a
+title: "Trabajo Fin de Máster"
+version: 1
+identifiers:
+  - type: doi
+    value: 1
+date-released: 2023-09-14
