@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{def} \PYG{n+nf}{dist}\PYG{p}{(}\PYG{n}{z}\PYG{p}{,}\PYG{n}{w}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} Calculamos la distancia euclídea entre ambos puntos}
+    \PYG{n}{distancia} \PYG{o}{=}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{((}\PYG{n}{z}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{w}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{o}{+}\PYG{p}{(}\PYG{n}{z}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{w}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n}{distancia}
+
+    \PYG{k}{def} \PYG{n+nf}{matdist}\PYG{p}{(}\PYG{n}{nube}\PYG{p}{):}
+        \PYG{c+c1}{\PYGZsh{} Creamos una matriz de ceros}
+        \PYG{n}{distancias} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{n}{n}\PYG{p}{,}\PYG{n}{n}\PYG{p}{));}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
+                \PYG{k}{if} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{j}\PYG{p}{:}
+                    \PYG{c+c1}{\PYGZsh{} Introducimos d(z\PYGZus{}i,z\PYGZus{}j) en la posición (i,j)}
+                    \PYG{n}{d} \PYG{o}{=} \PYG{n}{dist}\PYG{p}{(}\PYG{n}{nube}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{nube}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]);}
+                    \PYG{n}{distancias}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{d}\PYG{p}{;}
+                    \PYG{n}{distancias}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{d}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{distancias}
+\end{Verbatim}

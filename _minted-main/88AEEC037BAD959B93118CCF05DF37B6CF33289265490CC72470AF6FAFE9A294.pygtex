@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{def} \PYG{n+nf}{crearnubecircunferencia}\PYG{p}{(}\PYG{n}{epsilon}\PYG{p}{):}
+        \PYG{n}{nube} \PYG{o}{=} \PYG{p}{[];}
+        \PYG{n}{theta} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{n}{dospi} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{pi}\PYG{p}{;}
+        \PYG{k}{while} \PYG{n}{theta}\PYG{o}{\PYGZlt{}}\PYG{n}{dospi}\PYG{p}{:}
+            \PYG{n}{nube} \PYG{o}{+=} \PYG{p}{[[}\PYG{n}{math}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{),}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)]];}
+            \PYG{n}{theta} \PYG{o}{+=} \PYG{n}{epsilon}\PYG{p}{;}
+        \PYG{k}{return} \PYG{n}{nube}
+\end{Verbatim}

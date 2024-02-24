@@ -1,0 +1,217 @@
+\documentclass[twoside,reqno, 12pt]{amsbook}
+%La opción "reqno" hace el display de la numeración de las ecuaciones a la derecha, en vez de a la izquierda. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}
+\usepackage[english,spanish,activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%Para escribir en español. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% GRÁFICOS %%%%%%%%%%
+\usepackage{pgf,tikz,pgfplots}
+\usepackage{svg}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{matrix,arrows}
+%\usepackage{showkeys}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{subcaption}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% PAQUETES DE MATEMÁTICAS %%%%%%%%%%
+%\usepackage[mathscr]{euscript} %Cambia el formato predeterminado por \mathscr
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage{mathtools}
+\usepackage{float}
+
+%insertar programacion
+\usepackage{minted}
+\definecolor{gris}{gray}{0.92}
+
+%Fuentes
+\usepackage{mathrsfs}
+\usepackage{euscript}
+
+%\EuScript{A} una cursiva mayúscula más sobria
+%\mathscr{A} una cursiva mayúscula más elaborada y fina, caligráfica
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% EDICIÓN DEL DOCUMENTO %%%%%%%%%%
+\usepackage{framed}
+%\usepackage{fancyhdr} 
+\usepackage{vmargin}
+\usepackage{afterpage}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,% make the links colored
+} %Crea hipervincúlos dentro del documento
+\newcommand{\newabstract}[1]{%
+  \par\bigskip
+  \csname otherlanguage*\endcsname{#1}%
+  \csname captions#1\endcsname
+  \item[\hskip\labelsep\scshape\abstractname.]
+\vspace*{0.25cm}}
+\usepackage[
+backend=biber,
+style=numeric,
+]{biblatex}
+\addbibresource{biblioteca.bib} 
+\usepackage{csquotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% ENTORNOS %%%%%%%%%%
+%%%Las numeraciones van con la sección%%%
+
+\newtheorem{theorem}{Teorema}[chapter]
+%\numberwithin{theorem}{section}
+\newtheorem{conjecture}{Conjetura}[chapter]
+\newtheorem{lemma}{Lema}[chapter]
+%\numberwithin{lemma}{section}
+\newtheorem{corollary}{Corolario}[chapter]%tenia puesto theorem en vez de chapter, pero... no sé yo
+%\numberwithin{corollary}{section}
+\newtheorem{proposition}{Proposición}[chapter]
+%\numberwithin{proposition}{section}
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[chapter]
+%\numberwithin{definition}{section}
+\theoremstyle{definition}
+\newtheorem{observation}{Observación}[chapter]
+%\numberwithin{observation}{section}
+\theoremstyle{definition}
+\newtheorem{example}{Ejemplo}[chapter]
+%\numberwithin{example}{section}
+\theoremstyle{definition}
+\newtheorem{problem}{Problema}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Ejercicio}[chapter]
+\theoremstyle{definition}
+\newtheorem{notation}{Notación}[chapter]
+\theoremstyle{definition}
+\newtheorem{note}{Nota}[chapter]
+
+
+%Poner subíndices a las ecuaciones
+%Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\numberwithin{equation}{chapter} 
+%Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{chapter} 
+
+%Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{chapter}
+
+\author{Alejandro Moreno Becerra}
+\title{EXPANSIONES POLIEDRALES DE ESPACIOS COMPACTOS ASOCIADAS A APROXIMACIONES FINITAS}
+
+\input{latex_shortcuts}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+\textsc{Curso 2022/23}
+
+\vspace*{0.25cm}
+
+\textsc{Trabajo de Fin de Máster}
+
+
+\vspace*{0.5cm}
+
+{\large \textbf{EXPANSIONES POLIEDRALES DE ESPACIOS COMPACTOS ASOCIADAS A APROXIMACIONES FINITAS}}
+
+\vspace*{0.5cm}
+
+\textsc{Alejandro Moreno Becerra}
+
+\vspace*{0.25cm}
+
+\textsc{Dirigido por Manuel Alonso Morón}
+
+
+\vspace*{0.8cm}
+
+\includegraphics[width=0.4\textwidth]{imagenes/logoucm}
+
+\vspace*{0.8cm}
+{\large \textbf{UNIVERSIDAD COMPLUTENSE DE MADRID}}
+
+\vspace*{0.8cm}
+\textsc{Máster en Matemáticas Avanzadas}
+
+
+\vspace*{0.8cm}
+\textsc{Departamento de Álgebra, Geometría y Topología}
+
+\vspace*{0.25cm}
+\textsc{Facultad de Ciencias Matemáticas}
+
+
+\vspace*{6cm}
+
+Madrid, \today
+
+\thispagestyle{empty}
+
+\end{center}
+\end{titlepage}
+
+\begin{titlepage}
+
+\vspace*{2cm}
+
+\begin{abstract} El presente trabajo demuestra que es posible servirse de la teor'ia de espacios finitos para describir la forma de los espacios compactos m'etricos. Para ello, presenta los espacios topol'ogicos ANR y hace una introducci'on hist'orica a la teor'ia de la forma en la que revisa distintas descripciones de la misma y prueba su equivalencia. Despu'es, describe la generalizaci'on categ'orica de la forma para espacios topol'ogicos y resume las propiedades clave de los espacios finitos. Para finalizar, llega a los teoremas de s'intesis entre teor'ias. El 'ultimo cap'itulo investiga la implementaci'on en c'odigo de uno de los resultados anteriores.
+
+\vspace*{0.25cm}
+\noindent \textit{Palabras clave: topolog'ia, topolog'ia algebraica, espacios finitos, homotop'ia, complejos simpliciales, teor'ia de la forma, l'imite inverso, homolog'ia, teor'ia de McCord, topolog'ia computacional, combinatoria}
+
+\newabstract{english} The present work demonstrates that it is possible to describe shape theory of metric compacta by means of the theory of finite spaces. With this intention, we introduce ANR topological spaces and we do an introduction to shape theory reviewing various of its descriptions and proving their equivalency. Then, we describe the categorical generalization of shape for topological spaces and summarize the key properties of finite spaces. Ultimately, we  arrive at the synthesis theorems bridging these theories. The last chapter investigates the code implementation of one of the previous results.
+
+\vspace*{0.25cm}
+\noindent \textit{Keywords: topology, algebraic topology, finite spaces, homotopy, simplicial complexes, shape theory, inverse limit, homology, McCord theory, computational topology, combinatorics}
+\end{abstract}
+
+%\subjclass[]{}
+\thispagestyle{empty}
+\maketitle
+
+
+\thispagestyle{empty}
+\end{titlepage}
+
+
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+
+\input{capitulos/prefacio}
+\input{capitulos/anrs}
+\input{capitulos/formahistorica}
+\input{capitulos/formacategorica}
+\input{capitulos/espaciosfinitos}
+\input{capitulos/sucesionesaprox}
+\input{capitulos/computando}
+\appendix 
+\input{capitulos/complejossimpliciales}
+
+\nocite{barmak2011algebraic}
+\nocite{Hatcher:478079}
+\nocite{jpmayfinitespaces}
+\nocite{stong}
+
+\newpage
+\printbibliography
+
+\end{document}
