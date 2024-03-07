@@ -1,4 +1,4 @@
-_minted_main
-build
-__pycache__
-.ipynb_checkpoints
+latex/_minted_main
+latex/build
+latex/__pycache__
+latex/.ipynb_checkpoints
