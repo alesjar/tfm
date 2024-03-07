@@ -1,6 +1,13 @@
 %%%%%%%%%% DEFINICIÓN DE COMANDOS %%%%%%%%%%
+% new abstract command
+\newcommand{\newabstract}[1]{%
+  \par\bigskip
+  \csname otherlanguage*\endcsname{#1}%
+  \csname captions#1\endcsname
+  \item[\hskip\labelsep\scshape\abstractname.]
+\vspace*{0.25cm}}
 
-%Comandos para los conjuntos
+% comandos para los conjuntos
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\bbp}{\mathbb{P}}
@@ -11,29 +18,11 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\bbs}{\mathbb{S}}
 \newcommand{\No}{\mathbb{N}_0}
-\newcommand{\bola}{B_{\eps}(x_0)}
-\newcommand{\bolaextra}[2][\eps]{B_{#1}(#2)}
-\newcommand{\frontera}[1][\Omega]{\partial #1}
-\newcommand{\fromeg}{\partial\Omega}
+\newcommand{\sn}{\mathbb{S}^n}
+\newcommand{\rn}{\R^n}
+\newcommand{\omeg}{\Omega}
 
-%conjuntos de funciones
-\newcommand{\cinf}{\ccal^{\infty}}
-\newcommand{\ck}[1]{\ccal^{#1}}
-\newcommand{\ckab}[1]{\ccal^{#1}([a,b];\R)}
-\newcommand{\cper}{\ccal_{2\pi }}
-\newcommand{\cperr}{\cper(\R;\C)}
-\newcommand{\lloc}{L^1_{loc}(\omeg)}
-\newcommand{\distri}{\dcal'(\omeg)}
-\newcommand{\wunoinfo}{W^{1,\infi}(\Omega)}
-\newcommand{\wunoinf}{W^{1,\infi }(\R^n )}
-\newcommand{\lipinfo}{\Lip^\infi (\Omega)}  
-\newcommand{\lipinf}{\Lip^\infi (\R^n )}
-
-%Uplas
-\newcommand{\mas}{(X_1,...,X_n)}
-\newcommand{\nupla}{(x_1,...,x_n)}
-
-%letras griegas 
+% letras griegas 
 \newcommand{\eps}{\varepsilon}
 \newcommand{\alf}{\alpha}
 \newcommand{\lam}{\lambda}
@@ -43,13 +32,13 @@
 \newcommand{\vf}{\varphi}
 \newcommand{\alfa}{\alpha}
 
-%tilde 
+% tilde 
 \newcommand{\tilpsi}{\tilde{\psi}}
 \newcommand{\tilvf}{\tilde{\vf}}
 \newcommand{\tilv}{\tilde{V}}
 \newcommand{\tilu}{\tilde{U}}
 
-%caligraficas
+% caligraficas
 \newcommand{\acal}{\mathcal{A}}
 \newcommand{\bcal}{\mathcal{B}}
 \newcommand{\ccal}{\mathcal{C}}
@@ -71,7 +60,7 @@
 \newcommand{\vcal}{\mathcal{V}}
 \newcommand{\wcal}{\mathcal{W}}
 
-%palote 
+% palote 
 \newcommand{\ttx}{\mathtt{x}}
 \newcommand{\tty}{\mathtt{y}}
 
@@ -81,8 +70,7 @@
 \newcommand{\bfrak}{\mathfrak{b}}
 \newcommand{\mfrak}{\mathfrak{m}}
 
-
-%parentesis y variables
+% parentesis y variables
 \newcommand{\pt}{(t)}
 \newcommand{\px}{(x)}
 \newcommand{\py}{(y)}
@@ -96,19 +84,8 @@
 \newcommand{\pxt}{(x,t)}
 \newcommand{\pxy}{(x,y)}
 
-%derivadas parciales
-\newcommand{\thx}{\pdv[]{\theta}{x}}
-\newcommand{\thy}{\pdv[]{\theta }{y}  }
-\newcommand{\ux}{\pdv[]{u}{x}}
-\newcommand{\uy}{\pdv[]{u}{y}}
-\newcommand{\vx}{\pdv[]{v}{x}}
-\newcommand{\vy}{\pdv[]{v}{y}}
-\newcommand{\rhox}{\pdv[]{\rho }{x} }
-\newcommand{\rhoy}{\pdv[]{\rho}{y}}
-
-%simbolos
+% simbolos
 \newcommand{\vacio}{\varnothing}
-\newcommand{\pat}{\forall}
 \newcommand{\exis}{\exists}
 \newcommand{\infi}{\infty}
 \newcommand{\norminf}[1]{\norm{#1}_{\infi}}
@@ -119,13 +96,13 @@
 \newcommand{\sq}{^2}
 \newcommand{\med}{\frac{1}{2}}
 \newcommand{\pesc}[1]{\left\langle #1 \right\rangle}
-\newcommand{\lr}{\left\langle }
-\newcommand{\rr}{\right\rangle }
-\newcommand{\normd}[1]{\norm{#1 }_2}
+\newcommand{\lr}{\left\langle}
+\newcommand{\rr}{\right\rangle}
 \newcommand{\inte}[2]{\int_{#1}^{#2}} 
 \newcommand{\si}{\text{si }}
 \newcommand{\en}{\text{en }}
 \newcommand{\ol}[1]{\overline{#1}}
+% restriction command
 \newcommand\rest[2]{{% we make the whole thing an ordinary symbol
   \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
   #1 % the function
@@ -136,33 +113,14 @@
 \newcommand{\lb}{\left[}
 \newcommand{\rb}{\right]}
 
-
-%cosenos y senos de angulos tipicos
-\newcommand{\cost}{\cos \theta }
-\newcommand{\sint}{\sin \theta }
-
-
-%sucesiones
-\newcommand{\sucn}[1]{\{#1\}_{n\geq 1}}
-\newcommand{\sucm}[1]{\{#1\}_{m\geq 1}}
-
-%limites
+% limites y sucesiones
+\newcommand{\sucn}[1]{\{#1\}_{n \geq 1}}
 \renewcommand{\lim}[2][h]{\lim_{#1\to #2}}
 \newcommand{\ton}{\underset{n\to\infi}{\lra}}
 \newcommand{\tom}{\underset{m\to\infi}{\lra}}
 \newcommand{\toeps }{\underset{\eps \to 0^+}{\lra }}
 
-
-%frases tipicas
-\newcommand{\ptp}{\forall p \in X}
-
-%sumas
-\newcommand{\summ}{\sum_{n=-m}^{m}}
-\newcommand{\sumz}{\sum_{n\in \Z}}
-\newcommand{\sumn}{\sum_{n\in \N}}
-\newcommand{\sumnn}{\sum_{n\geq 0}}
-
-%operadores
+% operadores
 \DeclareMathOperator{\sop}{sop}
 \DeclareMathOperator{\der}{Der}
 \DeclareMathOperator{\Hom}{Hom}
@@ -198,66 +156,3 @@
 \DeclareMathOperator{\sh}{sh}
 \DeclareMathOperator{\sd}{sd}
 \DeclareMathOperator{\St}{St}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%TCEP%%%%%%%%%%%%%%%%%%%%%%%%%5
-
-%fracciones
-\newcommand{\npixl}{\left(\frac{n\pi x}{L}\right)}
-
-%suma
-\newcommand{\fourier}{\sum_{n=1}^{\infty}c_n(u_0)e^{-d\left(\frac{n\pi}{L}\right)^2t}\sin (\frac{n\pi x}{L})}
-\newcommand{\einte}{e^{in\te}}
-\newcommand{\meinte}{e^{-in\te}}
-\newcommand{\eint}{e^{int}}
-\newcommand{\meint}{e^{-int}}
-
-%coeficientes de Fourier
-\newcommand{\cn}{c_n(u_0)=\frac{2}{L} \int_0 ^L u_0(s)\sin (\frac{n\pi s}{L})ds}
-
-%integrales
-\newcommand{\intpi}{\int_{-\pi}^{\pi}}
-\newcommand{\medpi }{\frac{1}{2\pi }}
-\newcommand{\into}{\int_\Omega }
-\newcommand{\intf}{\int_{\fromeg}}
-
-%derivada
-\newcommand{\dalf}{D^\alf }
-\newcommand{\omeg}{\Omega }
-\newcommand{\test }{\dcal (\omeg)}
-\newcommand{\rnm }{\R^N}
-
-%conjuntos
-\newcommand{\adomeg }{\overline{\Omega }}
-\newcommand{\subsol }{\sigma_g(\overline{\Omega })}
-\newcommand{\supersol}{\Sigma_g(\overline{\Omega })}    
-\newcommand{\subarm }{\sigma(\Omega)}
-\newcommand{\superarm}{\Sigma(\Omega)}
-
-
-%%%%%%%%%%%%%%%%%%TOPOLOGIA%%%%%%%%%%%%%%%%%%%%%%%
-
-%espacios tipicos
-\newcommand{\esp}{(X,T)}
-\newcommand{\sn}{\mathbb{S}^n}
-\newcommand{\rn}{\R^n}
-
-
-%%%%%%%%%%%%%%%%%%%VARIEDADES%%%%%%%%%%%%%%%%%%%%%  
-\newcommand{\vfinv}{\vf^{-1}}
-\newcommand{\derv}{\der(F_p)}
-\newcommand{\germ}{[\fcal_p(U)]}
-\newcommand{\tanp}{T_p M  }
-\newcommand{\tann}{\T_{F\pp}N}
-\newcommand{\fp}{F\pp}
-\newcommand{\xm}{\mathfrak{X}(M)}
-\newcommand{\xn}{\mathfrak{X}(N)}
-\newcommand{\pd}[1]{\frac{\partial }{\partial #1}}
-\newcommand{\restp}[1]{\rest{#1}{p}}
-\newcommand{\dxip }{\restp{\pdv[]{}{x_i}}}
-\newcommand{\dyip }{\restp{\pdv[]{}{y_i}}}
-\newcommand{\dxjp }{\restp{\pdv[]{}{x_j}}}
-\newcommand{\dyjp }{\restp{\pdv[]{}{y_j}}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

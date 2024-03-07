@@ -1,95 +1,59 @@
 \documentclass[twoside,reqno, 12pt]{amsbook}
-%La opción "reqno" hace el display de la numeración de las ecuaciones a la derecha, en vez de a la izquierda. 
+% La opción "reqno" hace el display de la numeración 
+% de las ecuaciones a la derecha, en vez de a la izquierda. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% LANGUAGE %%%%%%%%%%%
 \usepackage{lmodern}
 \usepackage[english,spanish,activeacute]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-%Para escribir en español. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%% GRÁFICOS %%%%%%%%%%
+%%%%%%%%%%% GRAPHICS %%%%%%%%%%%
 \usepackage{pgf,tikz,pgfplots}
 \usepackage{svg}
 \pgfplotsset{compat=1.15}
 \usetikzlibrary{matrix,arrows}
-%\usepackage{showkeys}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{subcaption}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%% PAQUETES DE MATEMÁTICAS %%%%%%%%%%
-%\usepackage[mathscr]{euscript} %Cambia el formato predeterminado por \mathscr
+%%%%%%%%%%% MATH %%%%%%%%%%%
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{physics}
+\usepackage{physics} % defines \abs
 \usepackage{amssymb}
 \usepackage{xfrac}
 \usepackage{mathtools}
 \usepackage{float}
-
-%insertar programacion
-\usepackage{minted}
+\usepackage{minted} % for code
 \definecolor{gris}{gray}{0.92}
-
-%Fuentes
-\usepackage{mathrsfs}
+\usepackage{mathrsfs} % fonts
 \usepackage{euscript}
 
-%\EuScript{A} una cursiva mayúscula más sobria
-%\mathscr{A} una cursiva mayúscula más elaborada y fina, caligráfica
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%% EDICIÓN DEL DOCUMENTO %%%%%%%%%%
+%%%%%%%%%%% DOCUMENT %%%%%%%%%%%
 \usepackage{framed}
-%\usepackage{fancyhdr} 
 \usepackage{vmargin}
 \usepackage{afterpage}
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,% make the links colored
-} %Crea hipervincúlos dentro del documento
-\newcommand{\newabstract}[1]{%
-  \par\bigskip
-  \csname otherlanguage*\endcsname{#1}%
-  \csname captions#1\endcsname
-  \item[\hskip\labelsep\scshape\abstractname.]
-\vspace*{0.25cm}}
-\usepackage[
-backend=biber,
-style=numeric,
-]{biblatex}
+    colorlinks=true, % make the links colored
+}
+\usepackage[backend=biber, style=numeric]{biblatex}
 \addbibresource{biblioteca.bib} 
 \usepackage{csquotes}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%% ENTORNOS %%%%%%%%%%
-%%%Las numeraciones van con la sección%%%
-
+%%%%%%%%%%% ENTORNOS %%%%%%%%%%%
 \newtheorem{theorem}{Teorema}[chapter]
-%\numberwithin{theorem}{section}
 \newtheorem{conjecture}{Conjetura}[chapter]
 \newtheorem{lemma}{Lema}[chapter]
-%\numberwithin{lemma}{section}
-\newtheorem{corollary}{Corolario}[chapter]%tenia puesto theorem en vez de chapter, pero... no sé yo
-%\numberwithin{corollary}{section}
+\newtheorem{corollary}{Corolario}[chapter]
 \newtheorem{proposition}{Proposición}[chapter]
-%\numberwithin{proposition}{section}
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
-%\numberwithin{definition}{section}
 \theoremstyle{definition}
 \newtheorem{observation}{Observación}[chapter]
-%\numberwithin{observation}{section}
 \theoremstyle{definition}
 \newtheorem{example}{Ejemplo}[chapter]
-%\numberwithin{example}{section}
 \theoremstyle{definition}
 \newtheorem{problem}{Problema}[chapter]
 \theoremstyle{definition}
@@ -99,16 +63,8 @@ style=numeric,
 \theoremstyle{definition}
 \newtheorem{note}{Nota}[chapter]
 
-
-%Poner subíndices a las ecuaciones
-%Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-
-%\numberwithin{equation}{chapter} 
-%Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-\numberwithin{figure}{chapter} 
-
-%Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-%\numberwithin{table}{chapter}
+\numberwithin{figure}{chapter} % number figures within chapter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Alejandro Moreno Becerra}
 \title{EXPANSIONES POLIEDRALES DE ESPACIOS COMPACTOS ASOCIADAS A APROXIMACIONES FINITAS}
